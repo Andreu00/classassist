@@ -134,7 +134,6 @@
     <Compile Include="DTO\Alumno.cs" />
     <Compile Include="DTO\Asignatura.cs" />
     <Compile Include="DTO\CursoProfesores.cs" />
-    <Compile Include="DTO\CriteriosDeEvaluacion.cs" />
     <Compile Include="DTO\Curso.cs" />
     <Compile Include="DTO\FaltaDeAsistencia.cs" />
     <Compile Include="DTO\Tarea.cs" />
@@ -222,8 +221,6 @@
   <ItemGroup>
     <Resource Include="logotipo.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Opciones\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

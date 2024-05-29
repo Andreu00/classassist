@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\maget\OneDrive\MiEscritorioASUS\Escritorio\Clase\2ºAÑO\TFG\ClassAssistantApp\MiTFG\MiTFG\obj\Debug\
+C:\Users\maget\OneDrive\MiEscritorioASUS\Documentos\GitHub\classassist\MiTFG\MiTFG\obj\Debug\
 MiTFG
 none
 false
 DEBUG;TRACE
-C:\Users\maget\OneDrive\MiEscritorioASUS\Escritorio\Clase\2ºAÑO\TFG\ClassAssistantApp\MiTFG\MiTFG\App.xaml
+C:\Users\maget\OneDrive\MiEscritorioASUS\Documentos\GitHub\classassist\MiTFG\MiTFG\App.xaml
 9-998106828
 
-301632945336
-331367779383
+29-729849603
+33-357680037
 admin_profesor.xaml;CRUDS\Alumnos\AñadirFalta.xaml;CRUDS\Usuarios\AñadirUsuario.xaml;CRUDS\Usuarios\ListarUsuarios.xaml;CRUDS\Usuarios\ModificarEliminarUsuario.xaml;CRUDS\Alumnos\ListarAlumnosW.xaml;MainWindow.xaml;admin.xaml;profesor.xaml;
 
-False
+True
 
