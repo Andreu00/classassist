@@ -130,6 +130,7 @@
     <Compile Include="DAO\DAOCursoProfesores.cs" />
     <Compile Include="DAO\DAOCursos.cs" />
     <Compile Include="DAO\DAOFaltas.cs" />
+    <Compile Include="DAO\DAOTutores.cs" />
     <Compile Include="DAO\DAOUsuario.cs" />
     <Compile Include="admin.xaml.cs">
       <DependentUpon>admin.xaml</DependentUpon>

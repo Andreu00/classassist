@@ -15,7 +15,6 @@ namespace MiTFG.DTO
         public string Email { get; set; }
         public string NumeroTelefono { get; set; }
         public int? Curso { get; set; }
-        public int? FaltasDeAsistencia { get; set; }
         public DateTime? FechaDeNacimiento { get; set; }
         public int TutoresID { get; set; }
 
@@ -23,7 +22,7 @@ namespace MiTFG.DTO
         public Alumno() { }
 
         // Constructor con parámetros
-        public Alumno(int id, string nombre, string apellidos, string dni, string email, string numeroTelefono, int? curso, int? faltasDeAsistencia, DateTime? fechaDeNacimiento, int tutoresID)
+        public Alumno(int id, string nombre, string apellidos, string dni, string email, string numeroTelefono, int? curso, DateTime? fechaDeNacimiento, int tutoresID)
         {
             ID = id;
             Nombre = nombre;
@@ -32,7 +31,6 @@ namespace MiTFG.DTO
             Email = email;
             NumeroTelefono = numeroTelefono;
             Curso = curso;
-            FaltasDeAsistencia = faltasDeAsistencia;
             FechaDeNacimiento = fechaDeNacimiento;
             TutoresID = tutoresID;
         }

@@ -85,5 +85,17 @@ namespace MiTFG
             var dataWindow = new AñadirFalta();
             dataWindow.Show();
         }
+
+        private void btnAniadirA_Click(object sender, RoutedEventArgs e)
+        {
+            var dataWindow = new AñadirAlumno();
+            dataWindow.Show();
+        }
+
+        private void btnListarA_Click(object sender, RoutedEventArgs e)
+        {
+            var dataWindow = new ListarAlumnosW();
+            dataWindow.Show();
+        }
     }
 }

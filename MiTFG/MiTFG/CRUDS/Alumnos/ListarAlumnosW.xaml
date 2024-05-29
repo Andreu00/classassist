@@ -5,24 +5,34 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MiTFG"
         mc:Ignorable="d"
-        Title="ListarAlumnosW" Height="450" Width="800">
-    <Grid>
-        <DataGrid x:Name="dataGrid" AutoGenerateColumns="False" CanUserAddRows="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10">
-            <!-- Define las columnas basadas en tus datos aquí -->
+        Title="ListarAlumnosW" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize">
+    <Grid Margin="10">
+        <DataGrid x:Name="dgAlumnos" AutoGenerateColumns="False" IsReadOnly="True" CanUserAddRows="False" Margin="0,0,0,50">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Columna 1" Binding="{Binding Path=Propiedad1}"/>
-                <DataGridTextColumn Header="Columna 2" Binding="{Binding Path=Propiedad2}"/>
-                <!-- Más columnas según sean necesarias -->
-
-                <!-- Columna de botones de eliminar -->
-                <DataGridTemplateColumn Header="Acciones" Width="SizeToCells">
+                <DataGridTextColumn Header="ID" Binding="{Binding ID}" Width="Auto"/>
+                <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" Width="*"/>
+                <DataGridTextColumn Header="Apellidos" Binding="{Binding Apellidos}" Width="*"/>
+                <DataGridTextColumn Header="DNI" Binding="{Binding DNI}" Width="Auto"/>
+                <DataGridTextColumn Header="Email" Binding="{Binding Email}" Width="*"/>
+                <DataGridTextColumn Header="Número de Teléfono" Binding="{Binding NumeroTelefono}" Width="Auto"/>
+                <DataGridTextColumn Header="Curso" Binding="{Binding Curso}" Width="Auto"/>
+                <DataGridTextColumn Header="Fecha de Nacimiento" Binding="{Binding FechaDeNacimiento, StringFormat=d}" Width="Auto"/>
+                <DataGridTextColumn Header="Tutor" Binding="{Binding TutorNombre}" Width="*"/>
+                <DataGridTemplateColumn Header="Acciones" Width="Auto">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Content="Eliminar" Click="DeleteButton_Click"/>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                <Button x:Name="btnEditar" Content="Editar" Tag="{Binding ID}" Margin="5,0" Click="btnEditar_Click"/>
+                                <Button x:Name="btnEliminar" Content="Eliminar" Tag="{Binding ID}" Margin="5,0" Click="btnEliminar_Click"/>
+                            </StackPanel>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
+
+        <Button x:Name="btnActualizar" Content="Actualizar" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="100" Margin="0,10,10,10" Click="btnActualizar_Click"/>
     </Grid>
 </Window>

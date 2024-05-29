@@ -124,3 +124,5 @@ C:\Users\maget\OneDrive\MiEscritorioASUS\Documentos\GitHub\classassist\MiTFG\MiT
 C:\Users\maget\OneDrive\MiEscritorioASUS\Documentos\GitHub\classassist\MiTFG\MiTFG\obj\Debug\MiTFG.csproj.CopyComplete
 C:\Users\maget\OneDrive\MiEscritorioASUS\Documentos\GitHub\classassist\MiTFG\MiTFG\obj\Debug\MiTFG.exe
 C:\Users\maget\OneDrive\MiEscritorioASUS\Documentos\GitHub\classassist\MiTFG\MiTFG\obj\Debug\MiTFG.pdb
+C:\Users\maget\OneDrive\MiEscritorioASUS\Documentos\GitHub\classassist\MiTFG\MiTFG\obj\Debug\CRUDS\Alumnos\AñadirAlumno.g.cs
+C:\Users\maget\OneDrive\MiEscritorioASUS\Documentos\GitHub\classassist\MiTFG\MiTFG\obj\Debug\CRUDS\Alumnos\AñadirAlumno.baml

@@ -5,8 +5,69 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MiTFG.CRUDS.Alumnos"
         mc:Ignorable="d"
-        Title="AñadirAlumno" Height="450" Width="800">
+        Title="AñadirAlumno" Height="650" Width="400"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize">
     <Grid>
-        
+        <Border BorderBrush="Gray" BorderThickness="1" Padding="10" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel>
+                <!-- Título -->
+                <TextBlock Text="Añadir Alumno" FontSize="20" FontWeight="Bold" TextAlignment="Center" Margin="0,0,0,20"/>
+
+                <!-- Nombre -->
+                <StackPanel Orientation="Horizontal" Margin="0,5">
+                    <TextBlock Text="Nombre:" Width="120" VerticalAlignment="Center"/>
+                    <TextBox x:Name="txtNombre" Width="200"/>
+                </StackPanel>
+
+                <!-- Apellidos -->
+                <StackPanel Orientation="Horizontal" Margin="0,5">
+                    <TextBlock Text="Apellidos:" Width="120" VerticalAlignment="Center"/>
+                    <TextBox x:Name="txtApellidos" Width="200"/>
+                </StackPanel>
+
+                <!-- DNI -->
+                <StackPanel Orientation="Horizontal" Margin="0,5">
+                    <TextBlock Text="DNI:" Width="120" VerticalAlignment="Center"/>
+                    <TextBox x:Name="txtDNI" Width="200"/>
+                </StackPanel>
+
+                <!-- Email -->
+                <StackPanel Orientation="Horizontal" Margin="0,5">
+                    <TextBlock Text="Email:" Width="120" VerticalAlignment="Center"/>
+                    <TextBox x:Name="txtEmail" Width="200"/>
+                </StackPanel>
+
+                <!-- Número de Teléfono -->
+                <StackPanel Orientation="Horizontal" Margin="0,5">
+                    <TextBlock Text="Número de Teléfono:" Width="120" VerticalAlignment="Center"/>
+                    <TextBox x:Name="txtNumeroTelefono" Width="200"/>
+                </StackPanel>
+
+                <!-- Curso -->
+                <StackPanel Orientation="Horizontal" Margin="0,5">
+                    <TextBlock Text="Curso:" Width="120" VerticalAlignment="Center"/>
+                    <ComboBox x:Name="cbCurso" Width="200"/>
+                </StackPanel>
+
+                <!-- Fecha de Nacimiento -->
+                <StackPanel Orientation="Horizontal" Margin="0,5">
+                    <TextBlock Text="Fecha de Nacimiento:" Width="120" VerticalAlignment="Center"/>
+                    <DatePicker x:Name="dpFechaDeNacimiento" Width="200"/>
+                </StackPanel>
+
+                <!-- Tutor -->
+                <StackPanel Orientation="Horizontal" Margin="0,5">
+                    <TextBlock Text="Tutor:" Width="120" VerticalAlignment="Center"/>
+                    <ComboBox x:Name="cbTutor" Width="200"/>
+                </StackPanel>
+
+                <!-- Botones -->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="20,10,0,0">
+                    <Button x:Name="btnAniadirAlumno" Content="Añadir" Width="75" Margin="5" Click="btnAniadirAlumno_Click"/>
+                    <Button x:Name="btnCancelar" Content="Cancelar" Width="75" Margin="5" Click="btnCancelar_Click"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
     </Grid>
 </Window>
