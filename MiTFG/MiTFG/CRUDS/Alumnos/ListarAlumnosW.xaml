@@ -9,7 +9,7 @@
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize">
     <Grid Margin="10">
-        <DataGrid x:Name="dgAlumnos" AutoGenerateColumns="False" IsReadOnly="True" CanUserAddRows="False" Margin="0,0,0,50">
+        <DataGrid x:Name="dgAlumnos" AutoGenerateColumns="False" IsReadOnly="True" CanUserAddRows="False" Margin="0,25,0,25">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding ID}" Width="Auto"/>
                 <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" Width="*"/>
@@ -24,7 +24,6 @@
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                <Button x:Name="btnEditar" Content="Editar" Tag="{Binding ID}" Margin="5,0" Click="btnEditar_Click"/>
                                 <Button x:Name="btnEliminar" Content="Eliminar" Tag="{Binding ID}" Margin="5,0" Click="btnEliminar_Click"/>
                             </StackPanel>
                         </DataTemplate>
@@ -32,7 +31,5 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-
-        <Button x:Name="btnActualizar" Content="Actualizar" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="100" Margin="0,10,10,10" Click="btnActualizar_Click"/>
     </Grid>
 </Window>
