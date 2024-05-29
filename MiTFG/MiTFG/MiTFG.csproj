@@ -110,6 +110,9 @@
     <Compile Include="admin_profesor.xaml.cs">
       <DependentUpon>admin_profesor.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CRUDS\Alumnos\AñadirAlumno.xaml.cs">
+      <DependentUpon>AñadirAlumno.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CRUDS\Alumnos\AñadirFalta.xaml.cs">
       <DependentUpon>AñadirFalta.xaml</DependentUpon>
     </Compile>
@@ -148,6 +151,10 @@
       <DependentUpon>profesor.xaml</DependentUpon>
     </Compile>
     <Page Include="admin_profesor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CRUDS\Alumnos\AñadirAlumno.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

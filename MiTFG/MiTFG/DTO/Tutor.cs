@@ -13,18 +13,16 @@ namespace MiTFG.DTO
         public string Telefono { get; set; }
         public string TlfnEmergencia { get; set; }
         public string Email { get; set; }
-        public int IdAlumno { get; set; }
 
         public Tutor() { }
 
-        public Tutor(int id, string nombre, string telefono, string tlfnEmergencia, string email, int idAlumno)
+        public Tutor(int id, string nombre, string telefono, string tlfnEmergencia, string email)
         {
             ID = id;
             Nombre = nombre;
             Telefono = telefono;
             TlfnEmergencia = tlfnEmergencia;
             Email = email;
-            IdAlumno = idAlumno;
         }
     }
 }

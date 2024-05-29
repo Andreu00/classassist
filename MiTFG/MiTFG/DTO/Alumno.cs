@@ -9,24 +9,23 @@ namespace MiTFG.DTO
     internal class Alumno
     {
         public int ID { get; set; }
-        public int IdTutor1 { get; set; }
-        public int IdTutor2 { get; set; }
         public string Nombre { get; set; }
         public string Apellidos { get; set; }
         public string DNI { get; set; }
         public string Email { get; set; }
         public string NumeroTelefono { get; set; }
-        public int Curso { get; set; }
-        public int FaltasDeAsistencia { get; set; }
-        public DateTime FechaDeNacimiento { get; set; }
+        public int? Curso { get; set; }
+        public int? FaltasDeAsistencia { get; set; }
+        public DateTime? FechaDeNacimiento { get; set; }
+        public int TutoresID { get; set; }
 
+        // Constructor vacío
         public Alumno() { }
 
-        public Alumno(int id, int idTutor1, int idTutor2, string nombre, string apellidos, string dni, string email, string numeroTelefono, int curso, int faltasDeAsistencia, DateTime fechaDeNacimiento)
+        // Constructor con parámetros
+        public Alumno(int id, string nombre, string apellidos, string dni, string email, string numeroTelefono, int? curso, int? faltasDeAsistencia, DateTime? fechaDeNacimiento, int tutoresID)
         {
             ID = id;
-            IdTutor1 = idTutor1;
-            IdTutor2 = idTutor2;
             Nombre = nombre;
             Apellidos = apellidos;
             DNI = dni;
@@ -35,6 +34,7 @@ namespace MiTFG.DTO
             Curso = curso;
             FaltasDeAsistencia = faltasDeAsistencia;
             FechaDeNacimiento = fechaDeNacimiento;
+            TutoresID = tutoresID;
         }
     }
 }
