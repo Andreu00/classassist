@@ -8,22 +8,16 @@ namespace MiTFG.DTO
 {
     internal class AsignaturaCriterio
     {
-        namespace MiTFG.DTO
-    {
-        public class AsignaturaCriterio
+        public int AsignaturasID { get; set; }
+        public int CriteriosDeEvaluacionID { get; set; }
+
+        public AsignaturaCriterio() { }
+
+        public AsignaturaCriterio(int asignaturasID, int criteriosDeEvaluacionID)
         {
-            public int AsignaturasID { get; set; }
-            public int CriteriosDeEvaluacionID { get; set; }
-
-            public AsignaturaCriterio() { }
-
-            public AsignaturaCriterio(int asignaturasID, int criteriosDeEvaluacionID)
-            {
-                AsignaturasID = asignaturasID;
-                CriteriosDeEvaluacionID = criteriosDeEvaluacionID;
-            }
+            AsignaturasID = asignaturasID;
+            CriteriosDeEvaluacionID = criteriosDeEvaluacionID;
         }
     }
+}
 
-}
-}

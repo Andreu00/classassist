@@ -13,9 +13,9 @@ namespace MiTFG.DAO
     {
         MySqlConnection conexionS = new MySqlConnection();
         static string servidor = "localhost";
-        static string db = "classassit";
-        static string usuario = "root";
-        static string password = "";
+        static string db = "prueba";
+        static string usuario = "andreu";
+        static string password = "1234";
         static string puerto = "3306";
         string cadenaConexion = "server=" + servidor + "; port=" + puerto + "; user id=" + usuario
         + "; password=" + password + "; database=" + db + ";";

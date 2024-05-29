@@ -161,14 +161,13 @@ namespace MiTFG.DAO
             {
                 using (MySqlConnection connection = objetoConexion.establecerConexion())
                 {
-                    string query = "UPDATE Usuarios SET Nombre = @Nombre, usuarioAcceso = @UsuarioAcceso, password = @Password, curso = @Curso, rango = @Rango WHERE ID = @ID";
+                    string query = "UPDATE Usuarios SET Nombre = @Nombre, usuarioAcceso = @UsuarioAcceso, password = @Password, rango = @Rango WHERE ID = @ID";
                     using (MySqlCommand command = new MySqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@ID", usuario.id);
                         command.Parameters.AddWithValue("@Nombre", usuario.nombre);
                         command.Parameters.AddWithValue("@UsuarioAcceso", usuario.usuarioAcceso);
                         command.Parameters.AddWithValue("@Password", usuario.password);
-                        command.Parameters.AddWithValue("@Curso", (object)usuario.Curso ?? DBNull.Value);
                         command.Parameters.AddWithValue("@Rango", usuario.Rango);
 
                         command.ExecuteNonQuery();

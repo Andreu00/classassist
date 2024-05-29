@@ -21,7 +21,6 @@ namespace MiTFG.CRUDS.Usuarios
     /// </summary>
     public partial class ModificarEliminarUsuario : Window
     {
-        private int? cursoAnterior;
         private List<int> cursosAnteriores;
         public ModificarEliminarUsuario()
         {

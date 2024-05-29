@@ -27,7 +27,6 @@ namespace MiTFG
             InitializeComponent();
             gBtnOpcionesUsuarios.Visibility = Visibility.Collapsed;
             gBtnOpcionesTareas.Visibility = Visibility.Collapsed;
-            gBtnCriteriosEvaluacion.Visibility = Visibility.Collapsed;
             gBtnAlumnos.Visibility = Visibility.Collapsed;              
             gBtnOpcionesTutores.Visibility = Visibility.Collapsed;
         }
@@ -36,33 +35,21 @@ namespace MiTFG
         {
             gBtnOpcionesUsuarios.Visibility = Visibility.Visible;
             gBtnOpcionesTareas.Visibility = Visibility.Collapsed;
-            gBtnCriteriosEvaluacion.Visibility = Visibility.Collapsed;
             gBtnAlumnos.Visibility = Visibility.Collapsed;
             gBtnOpcionesTutores.Visibility = Visibility.Collapsed;
         }
         private void btnGTareas_Click(object sender, RoutedEventArgs e)
         {
             gBtnOpcionesTareas.Visibility = Visibility.Visible;
-            gBtnCriteriosEvaluacion.Visibility = Visibility.Collapsed;
             gBtnAlumnos.Visibility = Visibility.Collapsed;
             gBtnOpcionesTutores.Visibility = Visibility.Collapsed;
             gBtnOpcionesUsuarios.Visibility = Visibility.Collapsed;
-        }
-
-        private void btnGCriterios_Click(object sender, RoutedEventArgs e)
-        {
-            gBtnCriteriosEvaluacion.Visibility = Visibility.Visible;
-            gBtnOpcionesUsuarios.Visibility = Visibility.Collapsed;
-            gBtnOpcionesTareas.Visibility = Visibility.Collapsed;
-            gBtnAlumnos.Visibility = Visibility.Collapsed;
-            gBtnOpcionesTutores.Visibility = Visibility.Collapsed;
         }
 
         private void btnGAlumnos_Click(object sender, RoutedEventArgs e)
         {
             gBtnOpcionesUsuarios.Visibility = Visibility.Collapsed;
             gBtnOpcionesTareas.Visibility = Visibility.Collapsed;
-            gBtnCriteriosEvaluacion.Visibility = Visibility.Collapsed;
             gBtnAlumnos.Visibility = Visibility.Visible;
             gBtnOpcionesTutores.Visibility = Visibility.Collapsed;
         }
@@ -71,7 +58,6 @@ namespace MiTFG
         {
             gBtnOpcionesUsuarios.Visibility = Visibility.Collapsed;
             gBtnOpcionesTareas.Visibility = Visibility.Collapsed;
-            gBtnCriteriosEvaluacion.Visibility = Visibility.Collapsed;
             gBtnAlumnos.Visibility = Visibility.Collapsed;
             gBtnOpcionesTutores.Visibility = Visibility.Visible;
         }

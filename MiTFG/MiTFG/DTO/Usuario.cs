@@ -12,18 +12,16 @@ namespace MiTFG.DTO
         public string nombre { get; set; }
         public string usuarioAcceso { get; set; }
         public string password { get; set; }
-        public int? Curso { get; set; }
         public string Rango { get; set; }
 
         public Usuario() { }
 
-        public Usuario(int id, string nombre, string usuarioAcceso, string password, int? curso, string rango)
+        public Usuario(int id, string nombre, string usuarioAcceso, string password, string rango)
         {
             this.id = id;
             this.nombre = nombre;
             this.usuarioAcceso = usuarioAcceso;
             this.password = password;
-            this.Curso = curso;
             this.Rango = rango;
         }
     }
