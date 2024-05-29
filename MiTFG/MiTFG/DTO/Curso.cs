@@ -13,7 +13,7 @@ namespace MiTFG.DTO
 
         public Curso() { }
 
-        public Curso(int id, string nombre, int profesores)
+        public Curso(int id, string nombre)
         {
             ID = id;
             Nombre = nombre;
