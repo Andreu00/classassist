@@ -1,0 +1,48 @@
+﻿<Window x:Class="MiTFG.CRUDS.Usuarios.AñadirUsuario"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MiTFG.CRUDS.Usuarios"
+        mc:Ignorable="d"
+        Title="AñadirUsuario" Height="450" Width="800"
+         WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <!-- Etiquetas y Campos de Entrada -->
+            <TextBlock Text="Nombre:" VerticalAlignment="Center" Margin="5"/>
+            <TextBox x:Name="txtNombre" Margin="5" Width="200"/>
+
+            <TextBlock Text="Usuario Acceso:" VerticalAlignment="Center" Margin="5"/>
+            <TextBox x:Name="txtUsuarioAcceso" Margin="5" Width="200"/>
+
+            <TextBlock Text="Password:" VerticalAlignment="Center" Margin="5"/>
+            <PasswordBox x:Name="txtPassword" Margin="5" Width="200"/>
+
+            <TextBlock Text="Curso:" VerticalAlignment="Center" Margin="5"/>
+            <ListBox x:Name="lbCursos" SelectionMode="Multiple" DisplayMemberPath="Nombre" SelectedValuePath="ID"/>
+
+            <TextBlock Text="Rango:" VerticalAlignment="Center" Margin="5"/>
+            <ComboBox x:Name="cbRango" Margin="5" Width="200">
+                <ComboBoxItem Content="profesor" />
+                <ComboBoxItem Content="admin" />
+                <ComboBoxItem Content="ambos" />
+            </ComboBox>
+
+            <!-- Botón para añadir usuario -->
+            <Button Content="Añadir Usuario" HorizontalAlignment="Center" Margin="5" Click="btnAniadirUsuario_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

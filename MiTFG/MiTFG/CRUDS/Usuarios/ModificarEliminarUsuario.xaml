@@ -1,0 +1,55 @@
+﻿<Window x:Class="MiTFG.CRUDS.Usuarios.ModificarEliminarUsuario"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MiTFG.CRUDS.Usuarios"
+        mc:Ignorable="d"
+        Title="ModificarEliminarUsuario" Height="450" Width="800"
+         WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="91*" />
+            <ColumnDefinition Width="204*"/>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="295*" />
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock Text="Seleccionar Usuario:" VerticalAlignment="Center" Margin="5"/>
+            <ComboBox x:Name="cbUsuarios" Margin="5" Width="200" SelectionChanged="cbUsuarios_SelectionChanged" DisplayMemberPath="nombre">
+                <ComboBoxItem Content="Seleccionar Usuario" />
+            </ComboBox>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock Text="Nombre:" VerticalAlignment="Center" Margin="5"/>
+            <TextBox x:Name="txtNombre" Margin="5" Width="200"/>
+
+            <TextBlock Text="Usuario Acceso:" VerticalAlignment="Center" Margin="5"/>
+            <TextBox x:Name="txtUsuarioAcceso" Margin="5" Width="200"/>
+
+            <TextBlock Text="Password:" VerticalAlignment="Center" Margin="5"/>
+            <PasswordBox x:Name="txtPassword" Margin="5" Width="200"/>
+
+            <TextBlock Text="Curso:" VerticalAlignment="Center" Margin="5"/>
+
+            <ListBox x:Name="lbCursos" SelectionMode="Multiple" DisplayMemberPath="Nombre" SelectedValuePath="ID"/>
+
+            <TextBlock Text="Rango:" VerticalAlignment="Center" Margin="5"/>
+            <ComboBox x:Name="cbRango" Margin="5" Width="200">
+                <ComboBoxItem Content="profesor" />
+                <ComboBoxItem Content="admin" />
+                <ComboBoxItem Content="ambos" />
+            </ComboBox>
+
+            <Button x:Name="btnModificar" Content="Modificar Usuario" HorizontalAlignment="Center" Margin="5" Click="btnModificar_Click"/>
+            <Button x:Name="btnEliminar" Content="Eliminar Usuario" HorizontalAlignment="Center" Margin="5" Click="btnEliminar_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

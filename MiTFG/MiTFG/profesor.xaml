@@ -1,0 +1,58 @@
+﻿<Page x:Class="MiTFG.Views.profesor"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MiTFG.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="650" d:DesignWidth="1150"
+      Title="profesor">
+
+    <Grid Background="White">
+        <!-- Encabezado -->
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0">
+            <TextBlock Text="Bienvenido!" FontSize="30" Foreground="#FF448000" FontWeight="Bold"/>
+        </StackPanel>
+
+        <!-- Botones de Gestión -->
+        <Grid Margin="0,65,0,0" VerticalAlignment="Top" Background="#FFBEFCB6" Height="45">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Button x:Name="btnGTareas" Content="Tareas" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Height="100" Foreground="Black" Background="{x:Null}" Margin="10" BorderBrush="{x:Null}" FontWeight="Bold" Click="btnGTareas_Click"/>
+            <Button x:Name="btnGCriterios" Content="Criterios De Evaluación" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Height="100" Foreground="Black" Background="{x:Null}" Margin="10" Grid.Column="1" BorderBrush="{x:Null}" FontWeight="Bold" Click="btnGCriterios_Click"/>
+        </Grid>
+        <Grid x:Name="gBtnOpcionesTareas" Margin="76,225,76,83">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Button x:Name="btnAniadirTa" Content="Añadir Tarea" Grid.Row="0" Grid.Column="0" Margin="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+            <Button x:Name="btnModificarTa" Content="Modificar Tarea" Grid.Row="0" Grid.Column="1" Margin="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+            <Button x:Name="btnListarTa" Content="Listar Tareas" Grid.Row="1" Grid.Column="0" Margin="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+            <Button x:Name="btnEliminarTa" Content="Eliminar Tarea" Grid.Row="1" Grid.Column="1" Margin="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+        </Grid>
+        <Grid x:Name="gBtnOpcionesCriterios" Margin="76,225,76,83">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Button x:Name="btnAniadirC" Content="Añadir Criterio" Grid.Row="0" Grid.Column="0" Margin="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+            <Button x:Name="btnModificarC" Content="Modificar Criterio" Grid.Row="0" Grid.Column="1" Margin="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+            <Button x:Name="btnListarC" Content="Listar Criterios" Grid.Row="1" Grid.Column="0" Margin="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+            <Button x:Name="btnEliminarC" Content="Eliminar Criterio" Grid.Row="1" Grid.Column="1" Margin="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+        </Grid>
+    </Grid>
+</Page>
