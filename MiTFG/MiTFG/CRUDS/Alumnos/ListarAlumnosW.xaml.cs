@@ -29,12 +29,22 @@ namespace MiTFG
 
         private void CargarAlumnos()
         {
-            
+            DAOAlumno daoAlumno = new DAOAlumno();
+            List<AlumnoConTutor> alumnosConTutores = daoAlumno.ObtenerAlumnosConTutores();
+            dgAlumnos.ItemsSource = alumnosConTutores;
         }
 
         private void btnEliminar_Click(object sender, RoutedEventArgs e)
         {
+            int alumnoID = (int)((Button)sender).Tag;
 
+            MessageBoxResult result = MessageBox.Show("¿Estás seguro de que deseas eliminar este alumno?", "Confirmar eliminación", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            if (result == MessageBoxResult.Yes)
+            {
+                DAOAlumno daoAlumno = new DAOAlumno();
+                daoAlumno.EliminarAlumno(alumnoID);
+                CargarAlumnos(); // Actualiza la lista después de eliminar
+            }
         }
     }
 }

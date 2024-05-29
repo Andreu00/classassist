@@ -169,7 +169,52 @@ namespace MiTFG.DAO
             }
         }
 
-
+        public List<AlumnoConTutor> ObtenerAlumnosConTutores()
+        {
+            List<AlumnoConTutor> alumnosConTutores = new List<AlumnoConTutor>();
+            conexion objetoConexion = new conexion();
+            try
+            {
+                using (MySqlConnection connection = objetoConexion.establecerConexion())
+                {
+                    string query = @"
+                        SELECT a.ID, a.Nombre, a.Apellidos, a.DNI, a.Email, a.NumeroTelefono, a.Curso, a.FechaDeNacimiento, t.Nombre AS TutorNombre
+                        FROM Alumnos a
+                        JOIN Tutores t ON a.tutores_ID = t.ID";
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    {
+                        using (MySqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                AlumnoConTutor alumnoConTutor = new AlumnoConTutor
+                                {
+                                    ID = reader.GetInt32("ID"),
+                                    Nombre = reader.GetString("Nombre"),
+                                    Apellidos = reader.GetString("Apellidos"),
+                                    DNI = reader.GetString("DNI"),
+                                    Email = reader.GetString("Email"),
+                                    NumeroTelefono = reader.GetString("NumeroTelefono"),
+                                    Curso = reader.IsDBNull(reader.GetOrdinal("Curso")) ? (int?)null : reader.GetInt32("Curso"),
+                                    FechaDeNacimiento = reader.IsDBNull(reader.GetOrdinal("FechaDeNacimiento")) ? (DateTime?)null : reader.GetDateTime("FechaDeNacimiento"),
+                                    TutorNombre = reader.GetString("TutorNombre")
+                                };
+                                alumnosConTutores.Add(alumnoConTutor);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al obtener alumnos con tutores: " + ex.Message);
+            }
+            finally
+            {
+                objetoConexion.cerrarConexion();
+            }
+            return alumnosConTutores;
+        }
 
     }
 }

@@ -136,6 +136,7 @@
       <DependentUpon>admin.xaml</DependentUpon>
     </Compile>
     <Compile Include="DTO\Alumno.cs" />
+    <Compile Include="DTO\AlumnoConTutor.cs" />
     <Compile Include="DTO\Asignatura.cs" />
     <Compile Include="DTO\AsignaturaCriterio.cs" />
     <Compile Include="DTO\CriterioDeEvaluacion.cs" />

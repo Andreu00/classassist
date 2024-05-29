@@ -20,7 +20,7 @@
                 <DataGridTextColumn Header="Curso" Binding="{Binding Curso}" Width="Auto"/>
                 <DataGridTextColumn Header="Fecha de Nacimiento" Binding="{Binding FechaDeNacimiento, StringFormat=d}" Width="Auto"/>
                 <DataGridTextColumn Header="Tutor" Binding="{Binding TutorNombre}" Width="*"/>
-                <DataGridTemplateColumn Header="Acciones" Width="Auto">
+                <DataGridTemplateColumn Header="" Width="Auto">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
