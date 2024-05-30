@@ -36,7 +36,7 @@ namespace MiTFG
 
         private void btnEliminar_Click(object sender, RoutedEventArgs e)
         {
-            int alumnoID = (int)((Button)sender).Tag;
+            int alumnoID = (int)((Button)sender).Tag; //Tag almacena el ID del alumno de la linea en la que se ha seleccionado el boton eliminar
 
             MessageBoxResult result = MessageBox.Show("¿Estás seguro de que deseas eliminar este alumno?", "Confirmar eliminación", MessageBoxButton.YesNo, MessageBoxImage.Warning);
             if (result == MessageBoxResult.Yes)

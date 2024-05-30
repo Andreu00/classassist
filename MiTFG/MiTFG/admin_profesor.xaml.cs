@@ -97,5 +97,11 @@ namespace MiTFG
             var dataWindow = new ListarAlumnosW();
             dataWindow.Show();
         }
+
+        private void btnModificarA_Click(object sender, RoutedEventArgs e)
+        {
+            var dataWindow = new ModificarAlumno();
+            dataWindow.Show();
+        }
     }
 }

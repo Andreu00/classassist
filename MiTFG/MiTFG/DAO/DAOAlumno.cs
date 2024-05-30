@@ -19,7 +19,7 @@ namespace MiTFG.DAO
             {
                 using (MySqlConnection connection = objetoConexion.establecerConexion())
                 {
-                    string query = "SELECT ID, Nombre FROM Alumnos";
+                    string query = "SELECT * FROM Alumnos";
                     using (MySqlCommand command = new MySqlCommand(query, connection))
                     {
                         using (MySqlDataReader reader = command.ExecuteReader())
@@ -29,7 +29,14 @@ namespace MiTFG.DAO
                                 alumnos.Add(new Alumno
                                 {
                                     ID = reader.GetInt32("ID"),
-                                    Nombre = reader.GetString("Nombre")
+                                    Nombre = reader.GetString("Nombre"),
+                                    Apellidos = reader.GetString("Apellidos"),
+                                    DNI = reader.GetString("DNI"),
+                                    Email = reader.GetString("Email"),
+                                    NumeroTelefono = reader.GetString("NumeroTelefono"),
+                                    Curso = reader.IsDBNull(reader.GetOrdinal("Curso")) ? (int?)null : reader.GetInt32("Curso"),
+                                    FechaDeNacimiento = reader.IsDBNull(reader.GetOrdinal("FechaDeNacimiento")) ? (DateTime?)null : reader.GetDateTime("FechaDeNacimiento"),
+                                    TutoresID = reader.GetInt32("tutores_ID")
                                 });
                             }
                         }
@@ -215,6 +222,13 @@ namespace MiTFG.DAO
             }
             return alumnosConTutores;
         }
+
+        
+
+
+
+
+
 
     }
 }

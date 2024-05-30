@@ -28,8 +28,8 @@ namespace MiTFG
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            string usuarioAcceso = txtUsuario.Text; // Asegúrate de que tienes un TextBox con el nombre txtUsuario
-            string password = txtPassword.Password; // Asegúrate de que tienes un PasswordBox con el nombre txtPassword
+            string usuarioAcceso = txtUsuario.Text;
+            string password = txtPassword.Password;
 
             DAOUsuario daoUsuario = new DAOUsuario();
             string rango = daoUsuario.VerificarUsuario(usuarioAcceso, password);

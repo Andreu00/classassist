@@ -116,6 +116,9 @@
     <Compile Include="CRUDS\Alumnos\AñadirFalta.xaml.cs">
       <DependentUpon>AñadirFalta.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CRUDS\Alumnos\ModificarAlumno.xaml.cs">
+      <DependentUpon>ModificarAlumno.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CRUDS\Usuarios\AñadirUsuario.xaml.cs">
       <DependentUpon>AñadirUsuario.xaml</DependentUpon>
     </Compile>
@@ -161,6 +164,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="CRUDS\Alumnos\AñadirFalta.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CRUDS\Alumnos\ModificarAlumno.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
