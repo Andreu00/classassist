@@ -1,4 +1,5 @@
 ﻿using MiTFG.CRUDS.Alumnos;
+using MiTFG.CRUDS.Tutores;
 using MiTFG.CRUDS.Usuarios;
 using System;
 using System.Collections.Generic;
@@ -101,6 +102,12 @@ namespace MiTFG
         private void btnModificarA_Click(object sender, RoutedEventArgs e)
         {
             var dataWindow = new ModificarAlumno();
+            dataWindow.Show();
+        }
+
+        private void btnAniadirTu_Click(object sender, RoutedEventArgs e)
+        {
+            var dataWindow = new AñadirTutor();
             dataWindow.Show();
         }
     }

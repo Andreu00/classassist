@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\maget\OneDrive\MiEscritorioASUS\Documentos\GitHub\classassist\MiTFG\MiTFG\App.xaml
-11927336016
+13-230349672
 
-35-774526241
+37892136195
 33-357680037
-admin_profesor.xaml;CRUDS\Alumnos\AñadirAlumno.xaml;CRUDS\Alumnos\AñadirFalta.xaml;CRUDS\Alumnos\ModificarAlumno.xaml;CRUDS\Usuarios\AñadirUsuario.xaml;CRUDS\Usuarios\ListarUsuarios.xaml;CRUDS\Usuarios\ModificarEliminarUsuario.xaml;CRUDS\Alumnos\ListarAlumnosW.xaml;MainWindow.xaml;admin.xaml;profesor.xaml;
+admin_profesor.xaml;CRUDS\Alumnos\AñadirAlumno.xaml;CRUDS\Alumnos\AñadirFalta.xaml;CRUDS\Alumnos\ModificarAlumno.xaml;CRUDS\Tutores\AñadirTutor.xaml;CRUDS\Tutores\ModificarTutor.xaml;CRUDS\Usuarios\AñadirUsuario.xaml;CRUDS\Usuarios\ListarUsuarios.xaml;CRUDS\Usuarios\ModificarEliminarUsuario.xaml;CRUDS\Alumnos\ListarAlumnosW.xaml;MainWindow.xaml;admin.xaml;profesor.xaml;
 
-False
+True
 
