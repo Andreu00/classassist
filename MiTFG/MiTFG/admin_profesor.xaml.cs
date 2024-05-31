@@ -122,5 +122,11 @@ namespace MiTFG
             var dataWindow = new ListarTutores();
             dataWindow.Show();
         }
+
+        private void btnListarFa_Click(object sender, RoutedEventArgs e)
+        {
+            var dataWindow = new ListarFaltasAsistencia();
+            dataWindow.Show();
+        }
     }
 }

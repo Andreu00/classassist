@@ -223,7 +223,38 @@ namespace MiTFG.DAO
             return alumnosConTutores;
         }
 
-        
+        public string ObtenerNombreAlumnoPorID(int alumnoID)
+        {
+            string nombreAlumno = null;
+            conexion objetoConexion = new conexion();
+            try
+            {
+                using (MySqlConnection connection = objetoConexion.establecerConexion())
+                {
+                    string query = "SELECT Nombre FROM Alumnos WHERE ID = @AlumnoID";
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@AlumnoID", alumnoID);
+                        using (MySqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                nombreAlumno = reader.GetString("Nombre");
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al obtener nombre del alumno: " + ex.Message);
+            }
+            finally
+            {
+                objetoConexion.cerrarConexion();
+            }
+            return nombreAlumno;
+        }
 
 
 

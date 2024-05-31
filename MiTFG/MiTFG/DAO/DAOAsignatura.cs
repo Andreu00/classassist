@@ -84,5 +84,38 @@ namespace MiTFG.DAO
             }
             return asignaturas;
         }
+
+        public string ObtenerNombreAsignaturaPorID(int asignaturaID)
+        {
+            string nombreAsignatura = null;
+            conexion objetoConexion = new conexion();
+            try
+            {
+                using (MySqlConnection connection = objetoConexion.establecerConexion())
+                {
+                    string query = "SELECT Nombre FROM Asignaturas WHERE ID = @AsignaturaID";
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@AsignaturaID", asignaturaID);
+                        using (MySqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                nombreAsignatura = reader.GetString("Nombre");
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al obtener nombre de la asignatura: " + ex.Message);
+            }
+            finally
+            {
+                objetoConexion.cerrarConexion();
+            }
+            return nombreAsignatura;
+        }
     }
 }

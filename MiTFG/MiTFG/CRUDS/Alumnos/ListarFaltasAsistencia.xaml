@@ -1,0 +1,31 @@
+﻿<Window x:Class="MiTFG.CRUDS.Alumnos.ListarFaltasAsistencia"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MiTFG.CRUDS.Alumnos"
+        mc:Ignorable="d"
+        Title="Listar Faltas de Asistencia" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize">
+    <Grid Margin="10">
+        
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,371">
+            <TextBlock Text="Curso:" VerticalAlignment="Center" Margin="0,0,10,0"/>
+            <ComboBox x:Name="cbCursos" Width="200" Margin="0,0,10,0"/>
+            <TextBlock Text="Fecha:" VerticalAlignment="Center" Margin="0,0,10,0"/>
+            <DatePicker x:Name="dpFecha" Width="200" Margin="0,0,10,0"/>
+            <Button x:Name="btnCargar" Content="Cargar" Width="100" Click="btnCargar_Click"/>
+        </StackPanel>
+        
+        <DataGrid x:Name="dgFaltasAsistencia" AutoGenerateColumns="False" IsReadOnly="True" CanUserAddRows="False" Margin="0,48,0,0">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding ID}" Width="Auto"/>
+                <DataGridTextColumn Header="Alumno" Binding="{Binding NombreAlumno}" Width="*"/>
+                <DataGridTextColumn Header="Asignatura" Binding="{Binding NombreAsignatura}" Width="*"/>
+                <DataGridTextColumn Header="Fecha" Binding="{Binding Fecha, StringFormat=d}" Width="Auto"/>
+                <DataGridTextColumn Header="Hora" Binding="{Binding Hora, StringFormat=t}" Width="Auto"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
