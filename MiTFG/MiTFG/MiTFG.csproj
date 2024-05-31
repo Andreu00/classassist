@@ -122,6 +122,9 @@
     <Compile Include="CRUDS\Tutores\AñadirTutor.xaml.cs">
       <DependentUpon>AñadirTutor.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CRUDS\Tutores\ListarTutores.xaml.cs">
+      <DependentUpon>ListarTutores.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CRUDS\Tutores\ModificarTutor.xaml.cs">
       <DependentUpon>ModificarTutor.xaml</DependentUpon>
     </Compile>
@@ -178,6 +181,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="CRUDS\Tutores\AñadirTutor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CRUDS\Tutores\ListarTutores.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

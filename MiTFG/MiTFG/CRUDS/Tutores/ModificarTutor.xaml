@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MiTFG.CRUDS.Tutores"
         mc:Ignorable="d"
+        Title="Modificar Tutor" Height="400" Width="400"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize">
     <Grid Margin="10">
