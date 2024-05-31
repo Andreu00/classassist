@@ -19,7 +19,7 @@ namespace MiTFG.DAO
             {
                 using (MySqlConnection connection = objetoConexion.establecerConexion())
                 {
-                    string query = "SELECT ID, Nombre, Telefono, TlfnEmergencia, Email FROM Tutores";
+                    string query = "SELECT * FROM Tutores";
                     using (MySqlCommand command = new MySqlCommand(query, connection))
                     {
                         using (MySqlDataReader reader = command.ExecuteReader())

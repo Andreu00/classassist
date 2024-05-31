@@ -5,8 +5,50 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MiTFG.CRUDS.Tutores"
         mc:Ignorable="d"
-        Title="ModificarTutor" Height="450" Width="800">
-    <Grid>
-        
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize">
+    <Grid Margin="10">
+        <Border BorderBrush="Gray" BorderThickness="1" Padding="10" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel>
+                <!-- Título -->
+                <TextBlock Text="Modificar Tutor" FontSize="20" FontWeight="Bold" TextAlignment="Center" Margin="0,0,0,20"/>
+
+                <!-- Seleccionar Tutor -->
+                <StackPanel Orientation="Horizontal" Margin="0,5">
+                    <TextBlock Text="Seleccionar Tutor:" Width="150" VerticalAlignment="Center"/>
+                    <ComboBox x:Name="cbTutores" Width="200" SelectionChanged="cbTutores_SelectionChanged"/>
+                </StackPanel>
+
+                <!-- Nombre -->
+                <StackPanel Orientation="Horizontal" Margin="0,5">
+                    <TextBlock Text="Nombre:" Width="150" VerticalAlignment="Center"/>
+                    <TextBox x:Name="txtNombre" Width="200"/>
+                </StackPanel>
+
+                <!-- Teléfono -->
+                <StackPanel Orientation="Horizontal" Margin="0,5">
+                    <TextBlock Text="Teléfono:" Width="150" VerticalAlignment="Center"/>
+                    <TextBox x:Name="txtTelefono" Width="200"/>
+                </StackPanel>
+
+                <!-- Teléfono de Emergencia -->
+                <StackPanel Orientation="Horizontal" Margin="0,5">
+                    <TextBlock Text="Teléfono de Emergencia:" Width="150" VerticalAlignment="Center"/>
+                    <TextBox x:Name="txtTlfnEmergencia" Width="200"/>
+                </StackPanel>
+
+                <!-- Email -->
+                <StackPanel Orientation="Horizontal" Margin="0,5">
+                    <TextBlock Text="Email:" Width="150" VerticalAlignment="Center"/>
+                    <TextBox x:Name="txtEmail" Width="200"/>
+                </StackPanel>
+
+                <!-- Botones -->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="20,10,0,0">
+                    <Button x:Name="btnActualizar" Content="Actualizar" Width="100" Margin="5" Click="btnActualizar_Click"/>
+                    <Button x:Name="btnCancelar" Content="Cancelar" Width="100" Margin="5" Click="btnCancelar_Click"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
     </Grid>
 </Window>

@@ -110,5 +110,11 @@ namespace MiTFG
             var dataWindow = new AñadirTutor();
             dataWindow.Show();
         }
+
+        private void btnModificarTu_Click(object sender, RoutedEventArgs e)
+        {
+            var dataWindow = new ModificarTutor();
+            dataWindow.Show();
+        }
     }
 }
