@@ -1,4 +1,6 @@
-﻿using MiTFG.CRUDS.Usuarios;
+﻿using MiTFG.CRUDS.Alumnos;
+using MiTFG.CRUDS.Tutores;
+using MiTFG.CRUDS.Usuarios;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,18 +28,28 @@ namespace MiTFG.Views
             InitializeComponent();
             gBtnOpcionesUsuarios.Visibility = Visibility.Collapsed;
             gBtnOpcionesTutores.Visibility = Visibility.Collapsed;
+            gBtnAlumnos.Visibility = Visibility.Collapsed;
         }
 
         private void btnGTutores_Click(object sender, RoutedEventArgs e)
         {
             gBtnOpcionesTutores.Visibility = Visibility.Visible;
             gBtnOpcionesUsuarios.Visibility = Visibility.Collapsed;
+            gBtnAlumnos.Visibility = Visibility.Collapsed;
         }
 
         private void btnGUsuarios_Click(object sender, RoutedEventArgs e)
         {
             gBtnOpcionesTutores.Visibility = Visibility.Collapsed;
             gBtnOpcionesUsuarios.Visibility = Visibility.Visible;
+            gBtnAlumnos.Visibility = Visibility.Collapsed;
+        }
+
+        private void btnGAlumnos_Click(object sender, RoutedEventArgs e)
+        {
+            gBtnOpcionesUsuarios.Visibility = Visibility.Collapsed;
+            gBtnOpcionesTutores.Visibility = Visibility.Collapsed;
+            gBtnAlumnos.Visibility = Visibility.Visible;
         }
 
         private void btnListarT_Click(object sender, RoutedEventArgs e)
@@ -61,6 +73,54 @@ namespace MiTFG.Views
         private void btnListarU_Click(object sender, RoutedEventArgs e)
         {
             var dataWindow = new ListarUsuarios();
+            dataWindow.Show();
+        }
+
+        private void btnAniadirA_Click(object sender, RoutedEventArgs e)
+        {
+            var dataWindow = new AñadirAlumno();
+            dataWindow.Show();
+        }
+
+        private void btnModificarA_Click(object sender, RoutedEventArgs e)
+        {
+            var dataWindow = new ModificarAlumno();
+            dataWindow.Show();
+        }
+
+        private void btnListarA_Click(object sender, RoutedEventArgs e)
+        {
+            var dataWindow = new ListarAlumnosW();
+            dataWindow.Show();
+        }
+
+        private void btnAniadirFa_Click(object sender, RoutedEventArgs e)
+        {
+            var dataWindow = new AñadirFalta();
+            dataWindow.Show();
+        }
+
+        private void btnListarFa_Click(object sender, RoutedEventArgs e)
+        {
+            var dataWindow = new ListarFaltasAsistencia();
+            dataWindow.Show();
+        }
+
+        private void btnAniadirTu_Click(object sender, RoutedEventArgs e)
+        {
+            var dataWindow = new AñadirTutor();
+            dataWindow.Show();
+        }
+
+        private void btnModificarTu_Click(object sender, RoutedEventArgs e)
+        {
+            var dataWindow = new ModificarTutor();
+            dataWindow.Show();
+        }
+
+        private void btnListarTu_Click(object sender, RoutedEventArgs e)
+        {
+            var dataWindow = new ListarTutores();
             dataWindow.Show();
         }
     }

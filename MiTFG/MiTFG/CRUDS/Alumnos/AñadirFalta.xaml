@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MiTFG.CRUDS.Alumnos"
         mc:Ignorable="d"
-        Title="AñadirFalta" Height="450" Width="800">
+        Title="AñadirFalta" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
