@@ -137,8 +137,8 @@
     <Compile Include="CRUDS\Usuarios\ListarUsuarios.xaml.cs">
       <DependentUpon>ListarUsuarios.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CRUDS\Usuarios\ModificarEliminarUsuario.xaml.cs">
-      <DependentUpon>ModificarEliminarUsuario.xaml</DependentUpon>
+    <Compile Include="CRUDS\Usuarios\ModificarUsuario.xaml.cs">
+      <DependentUpon>ModificarUsuario.xaml</DependentUpon>
     </Compile>
     <Compile Include="DAO\DAOAlumno.cs" />
     <Compile Include="DAO\DAOAsignatura.cs" />
@@ -207,7 +207,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="CRUDS\Usuarios\ModificarEliminarUsuario.xaml">
+    <Page Include="CRUDS\Usuarios\ModificarUsuario.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

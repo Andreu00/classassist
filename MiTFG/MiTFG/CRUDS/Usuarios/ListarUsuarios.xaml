@@ -17,7 +17,7 @@
                 <DataGridTemplateColumn Header="" Width="Auto">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button x:Name="btnEliminarUsuario" Content="Eliminar" Tag="{Binding ID}" Margin="5,0" Click="btnEliminarUsuario_Click"/>
+                            <Button x:Name="btnEliminarUsuario" Content="Eliminar" Tag="{Binding id}" Margin="5,0" Click="btnEliminarUsuario_Click"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

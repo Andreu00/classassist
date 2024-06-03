@@ -32,14 +32,20 @@ namespace MiTFG.CRUDS.Usuarios
 
         private void btnEliminarUsuario_Click(object sender, RoutedEventArgs e)
         {
-            int alumnoID = (int)((Button)sender).Tag;  //Tag almacena el ID del alumno de la linea en la que se ha seleccionado el boton eliminar
+            int usuarioID = (int)((Button)sender).Tag;  // Tag almacena el ID del usuario de la línea en la que se ha seleccionado el botón eliminar
 
-            MessageBoxResult result = MessageBox.Show("¿Estás seguro de que deseas eliminar este tutor?", "Confirmar eliminación", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            MessageBoxResult result = MessageBox.Show("¿Estás seguro de que deseas eliminar este usuario?", "Confirmar eliminación", MessageBoxButton.YesNo, MessageBoxImage.Warning);
             if (result == MessageBoxResult.Yes)
             {
+                // Eliminar relaciones en CursoProfesores
+                DAOCursoProfesores daoCursoProfesores = new DAOCursoProfesores();
+                daoCursoProfesores.eliminarRelacionesDeProfesor(usuarioID);
+
+                // Eliminar usuario
                 DAOUsuario daoUsuario = new DAOUsuario();
-                daoUsuario.eliminarUsuario(alumnoID);
-                CargarUsuarios();
+                daoUsuario.eliminarUsuario(usuarioID);
+                MessageBox.Show("Usuario eliminado con éxito.");
+                CargarUsuarios();  // Actualizar la lista de usuarios
             }
         }
     }

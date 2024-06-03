@@ -34,7 +34,7 @@ namespace MiTFG.CRUDS.Tutores
         }
         private void btnEliminarTutor_Click(object sender, RoutedEventArgs e)
         {
-            int tutorID = (int)((Button)sender).Tag; //Tag almacena el ID del alumno de la linea en la que se ha seleccionado el boton eliminar
+            int tutorID = (int)((Button)sender).Tag; //Tag almacena el ID del tutor de la linea en la que se ha seleccionado el boton eliminar
 
             MessageBoxResult result = MessageBox.Show("¿Estás seguro de que deseas eliminar este tutor?", "Confirmar eliminación", MessageBoxButton.YesNo, MessageBoxImage.Warning);
             if (result == MessageBoxResult.Yes)

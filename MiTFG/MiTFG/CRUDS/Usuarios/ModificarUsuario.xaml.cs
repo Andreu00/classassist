@@ -115,29 +115,5 @@ namespace MiTFG.CRUDS.Usuarios
                 }
             }
         }
-
-        private void btnEliminar_Click(object sender, RoutedEventArgs e)
-        {
-            if (cbUsuarios.SelectedIndex > 0) // Ignorar el ítem por defecto
-            {
-                Usuario usuarioSeleccionado = cbUsuarios.SelectedItem as Usuario;
-                if (usuarioSeleccionado != null)
-                {
-                    // Eliminar relaciones en CursoProfesores
-                    DAOCursoProfesores daoCursoProfesores = new DAOCursoProfesores();
-                    daoCursoProfesores.eliminarRelacionesDeProfesor(usuarioSeleccionado.id);
-
-                    // Eliminar usuario
-                    DAOUsuario daoUsuario = new DAOUsuario();
-                    daoUsuario.eliminarUsuario(usuarioSeleccionado.id);
-                    MessageBox.Show("Usuario eliminado con éxito.");
-                    LlenarComboBoxUsuarios(); // Actualizar la lista de usuarios en el ComboBox
-                }
-                else
-                {
-                    MessageBox.Show("Por favor, selecciona un usuario.");
-                }
-            }
-        }
     }
 }

@@ -49,7 +49,6 @@
             </ComboBox>
 
             <Button x:Name="btnModificar" Content="Modificar Usuario" HorizontalAlignment="Center" Margin="5" Click="btnModificar_Click"/>
-            <Button x:Name="btnEliminar" Content="Eliminar Usuario" HorizontalAlignment="Center" Margin="5" Click="btnEliminar_Click"/>
         </StackPanel>
     </Grid>
 </Window>
