@@ -13,7 +13,14 @@
                 <DataGridTextColumn Header="ID" Binding="{Binding id}" Width="50"/>
                 <DataGridTextColumn Header="Nombre" Binding="{Binding nombre}" Width="*"/>
                 <DataGridTextColumn Header="Usuario Acceso" Binding="{Binding usuarioAcceso}" Width="*"/>
-                <DataGridTextColumn Header="Rango" Binding="{Binding Rango}" Width="*"/>                
+                <DataGridTextColumn Header="Rango" Binding="{Binding Rango}" Width="*"/>
+                <DataGridTemplateColumn Header="" Width="Auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="btnEliminarUsuario" Content="Eliminar" Tag="{Binding ID}" Margin="5,0" Click="btnEliminarUsuario_Click"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
