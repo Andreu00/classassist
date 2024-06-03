@@ -66,7 +66,7 @@ namespace MiTFG.Views
 
         private void btnModificarU_Click(object sender, RoutedEventArgs e)
         {
-            var dataWindow = new ModificarEliminarUsuario();
+            var dataWindow = new ModificarUsuario();
             dataWindow.Show();
         }
 

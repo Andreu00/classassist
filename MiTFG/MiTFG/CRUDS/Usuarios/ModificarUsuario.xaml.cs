@@ -19,10 +19,10 @@ namespace MiTFG.CRUDS.Usuarios
     /// <summary>
     /// Lógica de interacción para ModificarEliminarUsuario.xaml
     /// </summary>
-    public partial class ModificarEliminarUsuario : Window
+    public partial class ModificarUsuario : Window
     {
         private List<int> cursosAnteriores;
-        public ModificarEliminarUsuario()
+        public ModificarUsuario()
         {
             InitializeComponent();
             LlenarComboBoxUsuarios();
