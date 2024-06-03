@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MiTFG.CRUDS.Alumnos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,19 +25,48 @@ namespace MiTFG.Views
         {
             InitializeComponent();
             gBtnOpcionesTareas.Visibility = Visibility.Collapsed;
-            gBtnOpcionesCriterios.Visibility = Visibility.Collapsed;
+            gBtnAlumnos.Visibility = Visibility.Collapsed;
         }
 
         private void btnGTareas_Click(object sender, RoutedEventArgs e)
         {
             gBtnOpcionesTareas.Visibility = Visibility.Visible;
-            gBtnOpcionesCriterios.Visibility = Visibility.Collapsed;
+            gBtnAlumnos.Visibility = Visibility.Collapsed;
         }
-
-        private void btnGCriterios_Click(object sender, RoutedEventArgs e)
+        private void btnGAlumnos_Click(object sender, RoutedEventArgs e)
         {
             gBtnOpcionesTareas.Visibility = Visibility.Collapsed;
-            gBtnOpcionesCriterios.Visibility = Visibility.Visible;
+            gBtnAlumnos.Visibility = Visibility.Visible;
+        }
+
+        private void btnAniadirA_Click(object sender, RoutedEventArgs e)
+        {
+            var dataWindow = new AñadirAlumno();
+            dataWindow.Show();
+        }
+
+        private void btnModificarA_Click(object sender, RoutedEventArgs e)
+        {
+            var dataWindow = new ModificarAlumno();
+            dataWindow.Show();
+        }
+
+        private void btnListarA_Click(object sender, RoutedEventArgs e)
+        {
+            var dataWindow = new ListarAlumnosW();
+            dataWindow.Show();
+        }
+
+        private void btnAniadirFa_Click(object sender, RoutedEventArgs e)
+        {
+            var dataWindow = new AñadirFalta();
+            dataWindow.Show();
+        }
+
+        private void btnListarFa_Click(object sender, RoutedEventArgs e)
+        {
+            var dataWindow = new ListarFaltasAsistencia();
+            dataWindow.Show();
         }
     }
 }
