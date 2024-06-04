@@ -1,0 +1,28 @@
+﻿<Window x:Class="MiTFG.CRUDS.Tareas.ListarTareas"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MiTFG.CRUDS.Tareas"
+        mc:Ignorable="d"
+        Title="Listar Tareas" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <DataGrid x:Name="dgTareas" AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding ID}" Width="50"/>
+                <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" Width="*"/>
+                <DataGridTextColumn Header="Tipo" Binding="{Binding Tipo}" Width="*"/>
+                <DataGridTextColumn Header="Comentario" Binding="{Binding Comentario}" Width="*"/>
+                <DataGridTextColumn Header="Curso" Binding="{Binding Cursos_ID}" Width="*"/>
+                <DataGridTemplateColumn Header="" Width="Auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="btnEliminarTarea" Content="Eliminar" Tag="{Binding ID}" Margin="5,0" Click="btnEliminarTarea_Click"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

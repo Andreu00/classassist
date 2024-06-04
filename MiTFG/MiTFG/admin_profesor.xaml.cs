@@ -141,5 +141,11 @@ namespace MiTFG
             var dataWindow = new ModificarTarea();
             dataWindow.Show();
         }
+
+        private void btnListarTa_Click(object sender, RoutedEventArgs e)
+        {
+            var dataWindow = new ListarTareas();
+            dataWindow.Show();
+        }
     }
 }

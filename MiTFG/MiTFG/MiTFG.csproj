@@ -125,6 +125,9 @@
     <Compile Include="CRUDS\Tareas\AñadirTarea.xaml.cs">
       <DependentUpon>AñadirTarea.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CRUDS\Tareas\ListarTareas.xaml.cs">
+      <DependentUpon>ListarTareas.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CRUDS\Tareas\ModificarTarea.xaml.cs">
       <DependentUpon>ModificarTarea.xaml</DependentUpon>
     </Compile>
@@ -195,6 +198,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="CRUDS\Tareas\AñadirTarea.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CRUDS\Tareas\ListarTareas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
