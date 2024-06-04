@@ -8,7 +8,7 @@
         Title="Listar Tareas" Height="450" Width="800"
         WindowStartupLocation="CenterScreen">
     <Grid>
-        <DataGrid x:Name="dgTareas" AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10">
+        <DataGrid x:Name="dgTareas" AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10" CanUserAddRows="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding ID}" Width="50"/>
                 <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" Width="*"/>

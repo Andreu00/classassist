@@ -8,7 +8,7 @@
         Title="ListarUsuarios" Height="450" Width="800"
          WindowStartupLocation="CenterScreen">
     <Grid>
-        <DataGrid x:Name="dgUsuarios" AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10" SelectedIndex="0">
+        <DataGrid x:Name="dgUsuarios" AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10" SelectedIndex="0" CanUserAddRows="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding id}" Width="50"/>
                 <DataGridTextColumn Header="Nombre" Binding="{Binding nombre}" Width="*"/>
