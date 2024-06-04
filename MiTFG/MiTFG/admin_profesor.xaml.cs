@@ -1,4 +1,5 @@
 ﻿using MiTFG.CRUDS.Alumnos;
+using MiTFG.CRUDS.Tareas;
 using MiTFG.CRUDS.Tutores;
 using MiTFG.CRUDS.Usuarios;
 using System;
@@ -126,6 +127,12 @@ namespace MiTFG
         private void btnListarFa_Click(object sender, RoutedEventArgs e)
         {
             var dataWindow = new ListarFaltasAsistencia();
+            dataWindow.Show();
+        }
+
+        private void btnAniadirTa_Click(object sender, RoutedEventArgs e)
+        {
+            var dataWindow = new AñadirTarea();
             dataWindow.Show();
         }
     }
