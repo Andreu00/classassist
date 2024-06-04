@@ -138,3 +138,5 @@ C:\Users\maget\OneDrive\MiEscritorioASUS\Documentos\GitHub\classassist\MiTFG\MiT
 C:\Users\maget\OneDrive\MiEscritorioASUS\Documentos\GitHub\classassist\MiTFG\MiTFG\obj\Debug\CRUDS\Usuarios\ModificarUsuario.baml
 C:\Users\maget\OneDrive\MiEscritorioASUS\Documentos\GitHub\classassist\MiTFG\MiTFG\obj\Debug\CRUDS\Tareas\AñadirTarea.g.cs
 C:\Users\maget\OneDrive\MiEscritorioASUS\Documentos\GitHub\classassist\MiTFG\MiTFG\obj\Debug\CRUDS\Tareas\AñadirTarea.baml
+C:\Users\maget\OneDrive\MiEscritorioASUS\Documentos\GitHub\classassist\MiTFG\MiTFG\obj\Debug\CRUDS\Tareas\ModificarTarea.g.cs
+C:\Users\maget\OneDrive\MiEscritorioASUS\Documentos\GitHub\classassist\MiTFG\MiTFG\obj\Debug\CRUDS\Tareas\ModificarTarea.baml
