@@ -111,6 +111,7 @@ namespace MiTFG.DAO
                 objetoConexion.cerrarConexion();
             }
         }
+
         public void eliminarTarea(int tareaID)
         {
             conexion objetoConexion = new conexion();
