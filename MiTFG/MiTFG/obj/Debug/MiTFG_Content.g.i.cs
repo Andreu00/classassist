@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("logotipo.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("iconoapp.ico")]
 
 
