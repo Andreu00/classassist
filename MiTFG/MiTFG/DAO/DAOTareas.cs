@@ -172,5 +172,45 @@ namespace MiTFG.DAO
             return tareaID;
         }
 
+        public List<Tarea> ObtenerTareasPorCurso(int cursoID)
+        {
+            List<Tarea> tareas = new List<Tarea>();
+            conexion objetoConexion = new conexion();
+            try
+            {
+                using (MySqlConnection connection = objetoConexion.establecerConexion())
+                {
+                    string query = "SELECT * FROM tarea WHERE Cursos_ID = @CursoID";
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@CursoID", cursoID);
+                        using (MySqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                Tarea tarea = new Tarea
+                                {
+                                    ID = reader.GetInt32("ID"),
+                                    Nombre = reader.GetString("Nombre"),
+                                    Tipo = reader.GetString("Tipo"),
+                                    Comentario = reader.GetString("Comentario"),
+                                    Cursos_ID = reader.GetInt32("Cursos_ID")
+                                };
+                                tareas.Add(tarea);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al obtener tareas por curso: " + ex.Message);
+            }
+            finally
+            {
+                objetoConexion.cerrarConexion();
+            }
+            return tareas;
+        }
     }
 }

@@ -1,0 +1,43 @@
+﻿<Window x:Class="MiTFG.CRUDS.Alumnos.AsignarNota"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MiTFG.CRUDS.Alumnos"
+        mc:Ignorable="d"
+        Title="Asignar Notas" Height="500" Width="800"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize">
+    <Grid Margin="10">
+        <StackPanel>
+            <Grid Margin="0,10,0,10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <StackPanel Orientation="Horizontal" Grid.Column="0" HorizontalAlignment="Left">
+                    <TextBlock Text="Curso:" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                    <ComboBox x:Name="cbCursos" Width="200" SelectionChanged="cbCursos_SelectionChanged"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Grid.Column="1" HorizontalAlignment="Left">
+                    <TextBlock Text="Tarea:" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                    <ComboBox x:Name="cbTareas" Width="200" SelectionChanged="cbTareas_SelectionChanged"/>
+                </StackPanel>
+            </Grid>
+            <DataGrid x:Name="dgAlumnos" AutoGenerateColumns="False" CanUserAddRows="False" Margin="0,10,0,0">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ID Alumno" Binding="{Binding Alumno_ID}" Width="100"/>
+                    <DataGridTextColumn Header="Nombre Alumno" Binding="{Binding NombreAlumno}" Width="*"/>
+                    <DataGridTextColumn Header="Nota" Binding="{Binding Nota, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="100" IsReadOnly="False"/>
+                    <DataGridTemplateColumn Header="Actualizar" Width="Auto">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Asignar Nota" Click="btnAsignarNota_Click" Tag="{Binding Alumno_ID}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+    </Grid>
+</Window>

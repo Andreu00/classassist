@@ -37,5 +37,33 @@ namespace MiTFG.DAO
                 objetoConexion.cerrarConexion();
             }
         }
+
+        public void ActualizarNota(int alumnoID, int tareaID, double? nota)
+        {
+            conexion objetoConexion = new conexion();
+            try
+            {
+                using (MySqlConnection connection = objetoConexion.establecerConexion())
+                {
+                    string query = "UPDATE alumnotarea SET nota = @Nota WHERE alumnos_ID = @Alumnos_ID AND tarea_ID = @Tarea_ID";
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@Nota", (object)nota ?? DBNull.Value);
+                        command.Parameters.AddWithValue("@Alumnos_ID", alumnoID);
+                        command.Parameters.AddWithValue("@Tarea_ID", tareaID);
+
+                        command.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al actualizar nota: " + ex.Message);
+            }
+            finally
+            {
+                objetoConexion.cerrarConexion();
+            }
+        }
     }
 }

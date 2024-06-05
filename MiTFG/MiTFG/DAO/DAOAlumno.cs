@@ -289,7 +289,48 @@ namespace MiTFG.DAO
             return alumnosIDs;
         }
 
-
+        public List<AlumnoTareaView> ObtenerAlumnosConTarea(int cursoID, int tareaID)
+        {
+            List<AlumnoTareaView> alumnosConTarea = new List<AlumnoTareaView>();
+            conexion objetoConexion = new conexion();
+            try
+            {
+                using (MySqlConnection connection = objetoConexion.establecerConexion())
+                {
+                    string query = "SELECT a.ID AS Alumno_ID, a.Nombre AS NombreAlumno, at.nota AS Nota " +
+                                   "FROM Alumnos a " +
+                                   "JOIN alumnotarea at ON a.ID = at.alumnos_ID " +
+                                   "WHERE a.Curso = @CursoID AND at.tarea_ID = @TareaID";
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@CursoID", cursoID);
+                        command.Parameters.AddWithValue("@TareaID", tareaID);
+                        using (MySqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                AlumnoTareaView alumnoTareaView = new AlumnoTareaView
+                                {
+                                    Alumno_ID = reader.GetInt32("Alumno_ID"),
+                                    NombreAlumno = reader.GetString("NombreAlumno"),
+                                    Nota = reader.IsDBNull(reader.GetOrdinal("Nota")) ? (double?)null : reader.GetDouble("Nota")
+                                };
+                                alumnosConTarea.Add(alumnoTareaView);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al obtener alumnos con tarea: " + ex.Message);
+            }
+            finally
+            {
+                objetoConexion.cerrarConexion();
+            }
+            return alumnosConTarea;
+        }
 
 
     }

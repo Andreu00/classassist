@@ -113,6 +113,9 @@
     <Compile Include="admin_profesor.xaml.cs">
       <DependentUpon>admin_profesor.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CRUDS\Alumnos\AsignarNota.xaml.cs">
+      <DependentUpon>AsignarNota.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CRUDS\Alumnos\AñadirAlumno.xaml.cs">
       <DependentUpon>AñadirAlumno.xaml</DependentUpon>
     </Compile>
@@ -167,6 +170,7 @@
     <Compile Include="DTO\Alumno.cs" />
     <Compile Include="DTO\AlumnoConTutor.cs" />
     <Compile Include="DTO\AlumnoTarea.cs" />
+    <Compile Include="DTO\AlumnoTareaView.cs" />
     <Compile Include="DTO\Asignatura.cs" />
     <Compile Include="DTO\AsignaturaCriterio.cs" />
     <Compile Include="DTO\CriterioDeEvaluacion.cs" />
@@ -183,6 +187,10 @@
       <DependentUpon>profesor.xaml</DependentUpon>
     </Compile>
     <Page Include="admin_profesor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CRUDS\Alumnos\AsignarNota.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
