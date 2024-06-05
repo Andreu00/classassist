@@ -1,4 +1,5 @@
 ﻿using MiTFG.CRUDS.Alumnos;
+using MiTFG.CRUDS.Tareas;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -66,6 +67,24 @@ namespace MiTFG.Views
         private void btnListarFa_Click(object sender, RoutedEventArgs e)
         {
             var dataWindow = new ListarFaltasAsistencia();
+            dataWindow.Show();
+        }
+
+        private void btnAniadirTa_Click(object sender, RoutedEventArgs e)
+        {
+            var dataWindow = new AñadirTarea();
+            dataWindow.Show();
+        }
+
+        private void btnModificarTa_Click(object sender, RoutedEventArgs e)
+        {
+            var dataWindow = new ModificarTarea();
+            dataWindow.Show();
+        }
+
+        private void btnListarTa_Click(object sender, RoutedEventArgs e)
+        {
+            var dataWindow = new ListarTareas();
             dataWindow.Show();
         }
     }
