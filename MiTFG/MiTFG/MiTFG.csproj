@@ -153,6 +153,7 @@
       <DependentUpon>ModificarUsuario.xaml</DependentUpon>
     </Compile>
     <Compile Include="DAO\DAOAlumno.cs" />
+    <Compile Include="DAO\DAOAlumnoTarea.cs" />
     <Compile Include="DAO\DAOAsignatura.cs" />
     <Compile Include="DAO\DAOCursoProfesores.cs" />
     <Compile Include="DAO\DAOCursos.cs" />
@@ -165,6 +166,7 @@
     </Compile>
     <Compile Include="DTO\Alumno.cs" />
     <Compile Include="DTO\AlumnoConTutor.cs" />
+    <Compile Include="DTO\AlumnoTarea.cs" />
     <Compile Include="DTO\Asignatura.cs" />
     <Compile Include="DTO\AsignaturaCriterio.cs" />
     <Compile Include="DTO\CriterioDeEvaluacion.cs" />

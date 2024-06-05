@@ -33,7 +33,7 @@
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" Margin="0,5">
-                    <TextBlock Text="Cursos_ID:" Width="150" VerticalAlignment="Center"/>
+                    <TextBlock Text="Curso:" Width="150" VerticalAlignment="Center"/>
                     <ComboBox x:Name="cbCurso" Grid.Row="3" Grid.Column="1" Margin="5" />
                 </StackPanel>
 

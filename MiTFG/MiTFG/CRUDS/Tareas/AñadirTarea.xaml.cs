@@ -50,6 +50,21 @@ namespace MiTFG.CRUDS.Tareas
 
             DAOTareas daoTareas = new DAOTareas();
             daoTareas.agregarTarea(nuevaTarea);
+
+            //ASIGNACIÓN DE TAREA A ALUMNOS DEL CURSO SELECCIONADO
+            int tareaID = daoTareas.obtenerIDTarea(nombre, comentario); // Obtener el ID de la tarea recién insertada
+
+            DAOAlumno daoAlumnos = new DAOAlumno();
+            List<int> alumnosIDs = daoAlumnos.obtenerAlumnosPorCurso(cursoID.Value);
+
+            DAOAlumnoTarea daoAlumnoTarea = new DAOAlumnoTarea();
+            foreach (int alumnoID in alumnosIDs)
+            {
+                AlumnoTarea alumnoTarea = new AlumnoTarea(alumnoID, tareaID, null);
+                daoAlumnoTarea.agregarAlumnoTarea(alumnoTarea);
+            }
+
+            MessageBox.Show("Tarea asignada a los alumnos del curso.");
             this.Close();
 
         }

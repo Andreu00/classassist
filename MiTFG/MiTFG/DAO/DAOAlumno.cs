@@ -19,7 +19,7 @@ namespace MiTFG.DAO
             {
                 using (MySqlConnection connection = objetoConexion.establecerConexion())
                 {
-                    string query = "SELECT * FROM Alumnos";
+                    string query = "SELECT * FROM alumnos";
                     using (MySqlCommand command = new MySqlCommand(query, connection))
                     {
                         using (MySqlDataReader reader = command.ExecuteReader())
@@ -62,7 +62,7 @@ namespace MiTFG.DAO
             {
                 using (MySqlConnection connection = objetoConexion.establecerConexion())
                 {
-                    string query = "SELECT Curso FROM Alumnos WHERE Nombre = @Nombre";
+                    string query = "SELECT Curso FROM alumnos WHERE Nombre = @Nombre";
                     using (MySqlCommand command = new MySqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@Nombre", nombreAlumno);
@@ -88,7 +88,7 @@ namespace MiTFG.DAO
             {
                 using (MySqlConnection connection = objetoConexion.establecerConexion())
                 {
-                    string query = "INSERT INTO Alumnos (Nombre, Apellidos, DNI, Email, NumeroTelefono, Curso, FechaDeNacimiento, tutores_ID) VALUES (@Nombre, @Apellidos, @DNI, @Email, @NumeroTelefono, @Curso, @FechaDeNacimiento, @TutoresID)";
+                    string query = "INSERT INTO alumnos (Nombre, Apellidos, DNI, Email, NumeroTelefono, Curso, FechaDeNacimiento, tutores_ID) VALUES (@Nombre, @Apellidos, @DNI, @Email, @NumeroTelefono, @Curso, @FechaDeNacimiento, @TutoresID)";
                     using (MySqlCommand command = new MySqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@Nombre", nuevoAlumno.Nombre);
@@ -122,7 +122,7 @@ namespace MiTFG.DAO
             {
                 using (MySqlConnection connection = objetoConexion.establecerConexion())
                 {
-                    string query = "UPDATE Alumnos SET Nombre = @Nombre, Apellidos = @Apellidos, DNI = @DNI, Email = @Email, NumeroTelefono = @NumeroTelefono, Curso = @Curso, FechaDeNacimiento = @FechaDeNacimiento, tutores_ID = @TutoresID WHERE ID = @ID";
+                    string query = "UPDATE alumnos SET Nombre = @Nombre, Apellidos = @Apellidos, DNI = @DNI, Email = @Email, NumeroTelefono = @NumeroTelefono, Curso = @Curso, FechaDeNacimiento = @FechaDeNacimiento, tutores_ID = @TutoresID WHERE ID = @ID";
                     using (MySqlCommand command = new MySqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@Nombre", alumno.Nombre);
@@ -157,7 +157,7 @@ namespace MiTFG.DAO
             {
                 using (MySqlConnection connection = objetoConexion.establecerConexion())
                 {
-                    string query = "DELETE FROM Alumnos WHERE ID = @ID";
+                    string query = "DELETE FROM alumnos WHERE ID = @ID";
                     using (MySqlCommand command = new MySqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@ID", id);
@@ -186,7 +186,7 @@ namespace MiTFG.DAO
                 {
                     string query = @"
                         SELECT a.ID, a.Nombre, a.Apellidos, a.DNI, a.Email, a.NumeroTelefono, a.Curso, a.FechaDeNacimiento, t.Nombre AS TutorNombre
-                        FROM Alumnos a
+                        FROM alumnos a
                         JOIN Tutores t ON a.tutores_ID = t.ID";
                     using (MySqlCommand command = new MySqlCommand(query, connection))
                     {
@@ -231,7 +231,7 @@ namespace MiTFG.DAO
             {
                 using (MySqlConnection connection = objetoConexion.establecerConexion())
                 {
-                    string query = "SELECT Nombre FROM Alumnos WHERE ID = @AlumnoID";
+                    string query = "SELECT Nombre FROM alumnos WHERE ID = @AlumnoID";
                     using (MySqlCommand command = new MySqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@AlumnoID", alumnoID);
@@ -256,7 +256,38 @@ namespace MiTFG.DAO
             return nombreAlumno;
         }
 
-
+        public List<int> obtenerAlumnosPorCurso(int cursoID)
+        {
+            List<int> alumnosIDs = new List<int>();
+            conexion objetoConexion = new conexion();
+            try
+            {
+                using (MySqlConnection connection = objetoConexion.establecerConexion())
+                {
+                    string query = "SELECT ID FROM alumnos WHERE Curso = @CursoID";
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@CursoID", cursoID);
+                        using (MySqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                alumnosIDs.Add(reader.GetInt32("ID"));
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al obtener IDs de los alumnos: " + ex.Message);
+            }
+            finally
+            {
+                objetoConexion.cerrarConexion();
+            }
+            return alumnosIDs;
+        }
 
 
 

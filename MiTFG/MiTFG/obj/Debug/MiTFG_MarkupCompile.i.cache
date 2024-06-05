@@ -12,9 +12,9 @@ DEBUG;TRACE
 C:\Users\maget\OneDrive\MiEscritorioASUS\Documentos\GitHub\classassist\MiTFG\MiTFG\App.xaml
 181488509491
 
-43-1896600960
+45-1890872025
 33-357680037
 admin_profesor.xaml;CRUDS\Alumnos\AñadirAlumno.xaml;CRUDS\Alumnos\AñadirFalta.xaml;CRUDS\Alumnos\ListarFaltasAsistencia.xaml;CRUDS\Alumnos\ModificarAlumno.xaml;CRUDS\Tareas\AñadirTarea.xaml;CRUDS\Tareas\ListarTareas.xaml;CRUDS\Tareas\ModificarTarea.xaml;CRUDS\Tutores\AñadirTutor.xaml;CRUDS\Tutores\ListarTutores.xaml;CRUDS\Tutores\ModificarTutor.xaml;CRUDS\Usuarios\AñadirUsuario.xaml;CRUDS\Usuarios\ListarUsuarios.xaml;CRUDS\Usuarios\ModificarUsuario.xaml;CRUDS\Alumnos\ListarAlumnosW.xaml;MainWindow.xaml;admin.xaml;profesor.xaml;
 
-False
+True
 

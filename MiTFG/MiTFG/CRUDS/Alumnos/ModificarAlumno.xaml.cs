@@ -97,7 +97,6 @@ namespace MiTFG.CRUDS.Alumnos
             DAOAlumno daoAlumno = new DAOAlumno();
             daoAlumno.ModificarAlumno(alumnoSeleccionado);
 
-            MessageBox.Show("Alumno actualizado");
             this.Close();
         }
 

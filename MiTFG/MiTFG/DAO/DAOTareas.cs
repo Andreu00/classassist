@@ -138,5 +138,39 @@ namespace MiTFG.DAO
             }
         }
 
+        public int obtenerIDTarea(string nombre, string comentario)
+        {
+            int tareaID = 0;
+            conexion objetoConexion = new conexion();
+            try
+            {
+                using (MySqlConnection connection = objetoConexion.establecerConexion())
+                {
+                    string query = "SELECT ID FROM tarea WHERE Nombre = @Nombre AND Comentario = @Comentario";
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@Nombre", nombre);
+                        command.Parameters.AddWithValue("@Comentario", comentario);
+                        using (MySqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                tareaID = reader.GetInt32("ID");
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al obtener ID de la tarea: " + ex.Message);
+            }
+            finally
+            {
+                objetoConexion.cerrarConexion();
+            }
+            return tareaID;
+        }
+
     }
 }
