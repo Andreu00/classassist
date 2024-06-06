@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\maget\OneDrive\MiEscritorioASUS\Documentos\GitHub\classassist\MiTFG\MiTFG\App.xaml
-191067327022
+20-1205984283
 
-47230845655
+48839612720
 33-357680037
-admin_profesor.xaml;CRUDS\Alumnos\AsignarNota.xaml;CRUDS\Alumnos\AñadirAlumno.xaml;CRUDS\Alumnos\AñadirFalta.xaml;CRUDS\Alumnos\ListarFaltasAsistencia.xaml;CRUDS\Alumnos\ModificarAlumno.xaml;CRUDS\Tareas\AñadirTarea.xaml;CRUDS\Tareas\ListarTareas.xaml;CRUDS\Tareas\ModificarTarea.xaml;CRUDS\Tutores\AñadirTutor.xaml;CRUDS\Tutores\ListarTutores.xaml;CRUDS\Tutores\ModificarTutor.xaml;CRUDS\Usuarios\AñadirUsuario.xaml;CRUDS\Usuarios\ListarUsuarios.xaml;CRUDS\Usuarios\ModificarUsuario.xaml;CRUDS\Alumnos\ListarAlumnosW.xaml;MainWindow.xaml;admin.xaml;profesor.xaml;
+admin_profesor.xaml;CRUDS\Tareas\AsignarAlumnos.xaml;CRUDS\Alumnos\AsignarNota.xaml;CRUDS\Alumnos\AñadirAlumno.xaml;CRUDS\Alumnos\AñadirFalta.xaml;CRUDS\Alumnos\ListarFaltasAsistencia.xaml;CRUDS\Alumnos\ModificarAlumno.xaml;CRUDS\Tareas\AñadirTarea.xaml;CRUDS\Tareas\ListarTareas.xaml;CRUDS\Tareas\ModificarTarea.xaml;CRUDS\Tutores\AñadirTutor.xaml;CRUDS\Tutores\ListarTutores.xaml;CRUDS\Tutores\ModificarTutor.xaml;CRUDS\Usuarios\AñadirUsuario.xaml;CRUDS\Usuarios\ListarUsuarios.xaml;CRUDS\Usuarios\ModificarUsuario.xaml;CRUDS\Alumnos\ListarAlumnosW.xaml;MainWindow.xaml;admin.xaml;profesor.xaml;
 
 False
 

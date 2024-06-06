@@ -1,9 +1,11 @@
-﻿using MiTFG.DAO;
+﻿using MiTFG.CRUDS.Alumnos;
+using MiTFG.DAO;
 using MiTFG.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -38,6 +40,7 @@ namespace MiTFG.CRUDS.Tareas
 
         private void btnAñadirTarea_Click(object sender, RoutedEventArgs e)
         {
+            // Capturar datos de los controles
             string nombre = txtNombre.Text;
             int asignaturaID = (int)cbAsignaturas.SelectedValue;
             string tipo = ((ComboBoxItem)cbTipo.SelectedItem)?.Content.ToString();
@@ -51,7 +54,8 @@ namespace MiTFG.CRUDS.Tareas
                 return;
             }
 
-            Tarea nuevaTarea = new Tarea
+            // Crear la tarea
+            Tarea tarea = new Tarea
             {
                 Nombre = nombre,
                 Asignaturas_ID = asignaturaID,
@@ -60,10 +64,26 @@ namespace MiTFG.CRUDS.Tareas
                 Evaluacion = evaluacion
             };
 
+            // Guardar la tarea en la base de datos usando DAOTareas y obtener el ID de la tarea recién creada
             DAOTareas daoTareas = new DAOTareas();
-            daoTareas.AgregarTarea(nuevaTarea);
+            int tareaID = daoTareas.AgregarTarea(tarea);
 
-            this.Close();
+            //COMPROBAR QUE RECOGE EL ID
+                //MessageBox.Show("Es:"+tareaID);
+
+            if (tareaID > 0)
+            {
+                // Abrir ventana para asignar alumnos
+                AsignarAlumnos ventanaAsignarAlumnos = new AsignarAlumnos(tareaID, asignaturaID);
+                ventanaAsignarAlumnos.ShowDialog();
+
+                // Cerrar la ventana de añadir tarea después de asignar alumnos
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("No se pudo añadir la tarea.");
+            }
         }
 
         private void btnCancelar_Click(object sender, RoutedEventArgs e)

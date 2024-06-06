@@ -332,6 +332,65 @@ namespace MiTFG.DAO
             return alumnosConTarea;
         }
 
+        public List<Alumno> obtenerAlumnosPorAsignatura(int asignaturaID)
+        {
+            List<Alumno> alumnos = new List<Alumno>();
+            conexion objetoConexion = new conexion();
+            try
+            {
+                using (MySqlConnection connection = objetoConexion.establecerConexion())
+                {
+                    // Obtener el CursoID de la asignatura
+                    int cursoID = 0;
+                    string queryCursoID = "SELECT CursoID FROM asignaturas WHERE ID = @AsignaturaID";
+                    using (MySqlCommand command = new MySqlCommand(queryCursoID, connection))
+                    {
+                        command.Parameters.AddWithValue("@AsignaturaID", asignaturaID);
+                        using (MySqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                cursoID = reader.GetInt32("CursoID");
+                            }
+                        }
+                    }
 
+                    // Obtener los alumnos del curso
+                    string queryAlumnos = "SELECT * FROM alumnos WHERE Curso = @CursoID";
+                    using (MySqlCommand command = new MySqlCommand(queryAlumnos, connection))
+                    {
+                        command.Parameters.AddWithValue("@CursoID", cursoID);
+                        using (MySqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                Alumno alumno = new Alumno
+                                {
+                                    ID = reader.GetInt32("ID"),
+                                    Nombre = reader.GetString("Nombre"),
+                                    Apellidos = reader.GetString("Apellidos"),
+                                    DNI = reader.GetString("DNI"),
+                                    Email = reader.GetString("Email"),
+                                    NumeroTelefono = reader.GetString("NumeroTelefono"),
+                                    Curso = reader.IsDBNull(reader.GetOrdinal("Curso")) ? (int?)null : reader.GetInt32("Curso"),
+                                    FechaDeNacimiento = reader.IsDBNull(reader.GetOrdinal("FechaDeNacimiento")) ? (DateTime?)null : reader.GetDateTime("FechaDeNacimiento"),
+                                    TutoresID = reader.GetInt32("tutores_ID")
+                                };
+                                alumnos.Add(alumno);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al obtener alumnos por asignatura: " + ex.Message);
+            }
+            finally
+            {
+                objetoConexion.cerrarConexion();
+            }
+            return alumnos;
+        }
     }
 }

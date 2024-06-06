@@ -11,9 +11,10 @@ namespace MiTFG.DAO
 {
     internal class DAOTareas
     {
-        public void AgregarTarea(Tarea tarea)
+        public int AgregarTarea(Tarea tarea)
         {
             conexion objetoConexion = new conexion();
+            int tareaID = 0;
             try
             {
                 using (MySqlConnection connection = objetoConexion.establecerConexion())
@@ -28,6 +29,9 @@ namespace MiTFG.DAO
                         command.Parameters.AddWithValue("@Evaluacion", tarea.Evaluacion);
 
                         command.ExecuteNonQuery();
+
+                        // Obtener el ID de la tarea recién insertada
+                        tareaID = (int)command.LastInsertedId;
                     }
                 }
                 MessageBox.Show("Tarea añadida con éxito.");
@@ -40,6 +44,7 @@ namespace MiTFG.DAO
             {
                 objetoConexion.cerrarConexion();
             }
+            return tareaID;
         }
 
         public List<Tarea> ObtenerTareas()
@@ -301,6 +306,32 @@ namespace MiTFG.DAO
             catch (Exception ex)
             {
                 MessageBox.Show("Error al asignar nota: " + ex.Message);
+            }
+            finally
+            {
+                objetoConexion.cerrarConexion();
+            }
+        }
+
+        public void asignarTareaAlumno(int alumnoID, int tareaID)
+        {
+            conexion objetoConexion = new conexion();
+            try
+            {
+                using (MySqlConnection connection = objetoConexion.establecerConexion())
+                {
+                    string query = "INSERT INTO alumnotarea (alumnos_ID, tarea_ID) VALUES (@AlumnoID, @TareaID)";
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@AlumnoID", alumnoID);
+                        command.Parameters.AddWithValue("@TareaID", tareaID);
+                        command.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al asignar tarea a alumno: " + ex.Message);
             }
             finally
             {
