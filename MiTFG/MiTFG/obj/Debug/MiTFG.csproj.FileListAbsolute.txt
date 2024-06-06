@@ -146,3 +146,5 @@ C:\Users\maget\OneDrive\MiEscritorioASUS\Documentos\GitHub\classassist\MiTFG\MiT
 C:\Users\maget\OneDrive\MiEscritorioASUS\Documentos\GitHub\classassist\MiTFG\MiTFG\obj\Debug\CRUDS\Alumnos\AsignarNota.baml
 C:\Users\maget\OneDrive\MiEscritorioASUS\Documentos\GitHub\classassist\MiTFG\MiTFG\obj\Debug\CRUDS\Tareas\AsignarAlumnos.baml
 C:\Users\maget\OneDrive\MiEscritorioASUS\Documentos\GitHub\classassist\MiTFG\MiTFG\obj\Debug\CRUDS\Tareas\AsignarAlumnos.g.cs
+C:\Users\maget\OneDrive\MiEscritorioASUS\Documentos\GitHub\classassist\MiTFG\MiTFG\obj\Debug\CRUDS\Alumnos\ModificarFalta.g.cs
+C:\Users\maget\OneDrive\MiEscritorioASUS\Documentos\GitHub\classassist\MiTFG\MiTFG\obj\Debug\CRUDS\Alumnos\ModificarFalta.baml

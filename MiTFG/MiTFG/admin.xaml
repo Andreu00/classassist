@@ -22,9 +22,9 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <Button x:Name="btnGUsuarios" Content="Gestión de Usuarios" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Height="100" Foreground="Black" Background="{x:Null}" Margin="10" BorderBrush="{x:Null}" FontWeight="Bold" Click="btnGUsuarios_Click" FontSize="14"/>
-            <Button x:Name="btnGTutores" Content="Gestión de Tutores" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="200" Height="100" Foreground="Black" Background="{x:Null}" Margin="0,0,0,-27" Grid.Column="2" BorderBrush="{x:Null}" FontWeight="Bold" Click="btnGTutores_Click" FontSize="14"/>
-            <Button x:Name="btnGAlumnos" Content="Gestión de Alumnos" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="200" Height="100" Foreground="Black" Background="{x:Null}" Margin="0,0,0,-27" Grid.Column="1" BorderBrush="{x:Null}" FontWeight="Bold" FontSize="14" Click="btnGAlumnos_Click"/>
+            <Button x:Name="btnGUsuarios" Content="Usuarios" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Height="100" Foreground="Black" Background="{x:Null}" Margin="10" BorderBrush="{x:Null}" FontWeight="Bold" Click="btnGUsuarios_Click" FontSize="14"/>
+            <Button x:Name="btnGTutores" Content="Tutores" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="200" Height="100" Foreground="Black" Background="{x:Null}" Margin="0,0,0,-27" Grid.Column="2" BorderBrush="{x:Null}" FontWeight="Bold" Click="btnGTutores_Click" FontSize="14"/>
+            <Button x:Name="btnGAlumnos" Content="Alumnos" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="200" Height="100" Foreground="Black" Background="{x:Null}" Margin="0,0,0,-27" Grid.Column="1" BorderBrush="{x:Null}" FontWeight="Bold" FontSize="14" Click="btnGAlumnos_Click"/>
         </Grid>
         <Grid x:Name="gBtnOpcionesUsuarios" Margin="76,225,76,83">
             <Grid.RowDefinitions>

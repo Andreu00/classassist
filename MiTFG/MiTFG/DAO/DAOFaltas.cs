@@ -18,14 +18,14 @@ namespace MiTFG.DAO
             {
                 using (MySqlConnection connection = objetoConexion.establecerConexion())
                 {
-                    string query = "INSERT INTO FaltasDeAsistencia (Fecha, Hora, AlumnoID, AsignaturaID) VALUES (@Fecha, @Hora, @AlumnoID, @AsignaturaID)";
+                    string query = "INSERT INTO faltasdeasistencia (Fecha, Hora, AlumnoID, AsignaturaID, Estado) VALUES (@Fecha, @Hora, @AlumnoID, @AsignaturaID, @Estado)";
                     using (MySqlCommand command = new MySqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@Fecha", falta.Fecha);
                         command.Parameters.AddWithValue("@Hora", falta.Hora);
                         command.Parameters.AddWithValue("@AlumnoID", falta.AlumnoID);
                         command.Parameters.AddWithValue("@AsignaturaID", falta.AsignaturaID);
-
+                        command.Parameters.AddWithValue("@Estado", falta.Estado);
                         command.ExecuteNonQuery();
                     }
                 }
@@ -50,10 +50,11 @@ namespace MiTFG.DAO
                 using (MySqlConnection connection = objetoConexion.establecerConexion())
                 {
                     string query = @"
-                        SELECT fa.ID, fa.Fecha, fa.Hora, fa.AlumnoID, fa.AsignaturaID
+                        SELECT fa.ID, fa.Fecha, fa.Hora, fa.Estado, fa.AlumnoID, fa.AsignaturaID
                         FROM faltasdeasistencia fa
-                        JOIN Alumnos a ON fa.AlumnoID = a.ID
-                        WHERE a.Curso = @CursoID AND fa.Fecha = @FechaSeleccionada";
+                        INNER JOIN alumnos a ON fa.AlumnoID = a.ID
+                        INNER JOIN asignaturas asg ON fa.AsignaturaID = asg.ID
+                        WHERE asg.CursoID = @CursoID AND fa.Fecha = @Fecha";
                     using (MySqlCommand command = new MySqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@CursoID", cursoID);
@@ -67,6 +68,7 @@ namespace MiTFG.DAO
                                     ID = reader.GetInt32("ID"),
                                     Fecha = reader.GetDateTime("Fecha"),
                                     Hora = reader.GetTimeSpan("Hora"),
+                                    Estado = reader.GetString("Estado"),
                                     AlumnoID = reader.GetInt32("AlumnoID"),
                                     AsignaturaID = reader.GetInt32("AsignaturaID")
                                 };
@@ -85,6 +87,74 @@ namespace MiTFG.DAO
                 objetoConexion.cerrarConexion();
             }
             return faltasAsistencia;
+        }
+
+        public void ModificarFaltaEstado(FaltaDeAsistencia falta)
+        {
+            conexion objetoConexion = new conexion();
+            try
+            {
+                using (MySqlConnection connection = objetoConexion.establecerConexion())
+                {
+                    string query = "UPDATE faltasdeasistencia SET Estado = @Estado WHERE ID = @ID";
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@ID", falta.ID);
+                        command.Parameters.AddWithValue("@Estado", falta.Estado);
+                        command.ExecuteNonQuery();
+                    }
+                }
+                MessageBox.Show("Falta de asistencia modificada con éxito.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al modificar falta de asistencia: " + ex.Message);
+            }
+            finally
+            {
+                objetoConexion.cerrarConexion();
+            }
+        }
+
+        public List<FaltaDeAsistencia> ObtenerFaltas()
+        {
+            List<FaltaDeAsistencia> faltas = new List<FaltaDeAsistencia>();
+            conexion objetoConexion = new conexion();
+            try
+            {
+                using (MySqlConnection connection = objetoConexion.establecerConexion())
+                {
+                    string query = "SELECT * FROM faltasdeasistencia";
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    {
+                        using (MySqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                FaltaDeAsistencia falta = new FaltaDeAsistencia
+                                {
+                                    ID = reader.GetInt32("ID"),
+                                    Fecha = reader.GetDateTime("Fecha"),
+                                    Hora = reader.GetTimeSpan("Hora"),
+                                    AlumnoID = reader.GetInt32("AlumnoID"),
+                                    AsignaturaID = reader.GetInt32("AsignaturaID"),
+                                    Estado = reader.GetString("Estado")
+                                };
+                                faltas.Add(falta);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al obtener faltas de asistencia: " + ex.Message);
+            }
+            finally
+            {
+                objetoConexion.cerrarConexion();
+            }
+            return faltas;
         }
     }
 }

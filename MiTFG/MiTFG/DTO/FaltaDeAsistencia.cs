@@ -13,18 +13,20 @@ namespace MiTFG.DTO
         public TimeSpan Hora { get; set; }
         public int AlumnoID { get; set; }
         public int AsignaturaID { get; set; }
+        public string Estado { get; set; }
 
         // Constructor vacío
         public FaltaDeAsistencia() { }
 
         // Constructor con parámetros
-        public FaltaDeAsistencia(int id, DateTime fecha, TimeSpan hora, int alumnoID, int asignaturaID)
+        public FaltaDeAsistencia(int id, DateTime fecha, TimeSpan hora, int alumnoID, int asignaturaID, string estado)
         {
             ID = id;
             Fecha = fecha;
             Hora = hora;
             AlumnoID = alumnoID;
             AsignaturaID = asignaturaID;
+            Estado = estado;
         }
     }
 }

@@ -1,0 +1,52 @@
+﻿<Window x:Class="MiTFG.CRUDS.Alumnos.ModificarFalta"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Modificar Falta de Asistencia" Height="450" Width="450"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize">
+    <Grid Margin="10">
+        <Border BorderBrush="Gray" BorderThickness="1" Padding="10" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel>
+                <TextBlock Text="Modificar Falta de Asistencia" FontSize="20" FontWeight="Bold" TextAlignment="Center" Margin="0,0,0,20"/>
+
+                <StackPanel Orientation="Horizontal" Margin="0,5">
+                    <TextBlock Text="Seleccionar Falta:" Width="150" VerticalAlignment="Center"/>
+                    <ComboBox x:Name="cmbFaltas" Width="200" SelectionChanged="cmbFaltas_SelectionChanged"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,5">
+                    <TextBlock Text="Alumno:" Width="150" VerticalAlignment="Center"/>
+                    <ComboBox x:Name="cmbAlumnos" Width="200" IsEnabled="False"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,5">
+                    <TextBlock Text="Fecha:" Width="150" VerticalAlignment="Center"/>
+                    <DatePicker x:Name="dpFecha" Width="200" IsEnabled="False"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,5">
+                    <TextBlock Text="Hora:" Width="150" VerticalAlignment="Center"/>
+                    <ComboBox x:Name="cmbHora" Width="200" IsEnabled="False"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,5">
+                    <TextBlock Text="Asignatura:" Width="150" VerticalAlignment="Center"/>
+                    <ComboBox x:Name="cmbAsignatura" Width="200" IsEnabled="False"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,5">
+                    <TextBlock Text="Estado:" Width="150" VerticalAlignment="Center"/>
+                    <ComboBox x:Name="cbEstado" Width="200">
+                        <ComboBoxItem Content="Injustificada" />
+                        <ComboBoxItem Content="Justificada" />
+                    </ComboBox>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="20,10,0,0">
+                    <Button x:Name="btnModificar" Content="Modificar" Width="100" Margin="5" Click="btnModificar_Click"/>
+                    <Button x:Name="btnCancelar" Content="Cancelar" Width="100" Margin="5" Click="btnCancelar_Click"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>

@@ -104,8 +104,9 @@ namespace MiTFG.CRUDS.Alumnos
                 Fecha = dpFecha.SelectedDate.Value,
                 Hora = hora,
                 AlumnoID = (int)cmbAlumnos.SelectedValue,
-                AsignaturaID = (int)cmbAsignatura.SelectedValue
-            };
+                AsignaturaID = (int)cmbAsignatura.SelectedValue,
+                Estado = ((ComboBoxItem)cbEstado.SelectedItem).Content.ToString()
+        };
 
             DAOFaltas daoFaltas = new DAOFaltas();
             daoFaltas.AgregarFalta(nuevaFalta);

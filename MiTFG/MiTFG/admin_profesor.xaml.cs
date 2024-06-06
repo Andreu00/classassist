@@ -88,6 +88,18 @@ namespace MiTFG
             dataWindow.Show();
         }
 
+        private void btnModificarFa_Click(object sender, RoutedEventArgs e)
+        {
+            var dataWindow = new ModificarFalta();
+            dataWindow.Show();
+        }
+
+        private void btnListarFa_Click(object sender, RoutedEventArgs e)
+        {
+            var dataWindow = new ListarFaltasAsistencia();
+            dataWindow.Show();
+        }
+
         private void btnAniadirA_Click(object sender, RoutedEventArgs e)
         {
             var dataWindow = new AñadirAlumno();
@@ -124,11 +136,7 @@ namespace MiTFG
             dataWindow.Show();
         }
 
-        private void btnListarFa_Click(object sender, RoutedEventArgs e)
-        {
-            var dataWindow = new ListarFaltasAsistencia();
-            dataWindow.Show();
-        }
+        
 
         private void btnAniadirTa_Click(object sender, RoutedEventArgs e)
         {
@@ -153,5 +161,7 @@ namespace MiTFG
             var dataWindow = new AsignarNota();
             dataWindow.Show();
         }
+
+        
     }
 }

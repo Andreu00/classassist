@@ -33,6 +33,12 @@
             <TextBlock Text="Seleccionar Asignatura:" Margin="0,0,0,10"/>
             <ComboBox x:Name="cmbAsignatura" Margin="0,0,0,10"/>
 
+            <TextBlock Text="Estado:" Margin="0,0,0,10"/>
+            <ComboBox x:Name="cbEstado" Width="200">
+                <ComboBoxItem Content="Injustificada" />
+                <ComboBoxItem Content="Justificada" />
+            </ComboBox>
+            
             <Button Content="Añadir" Click="btnAñadir_Click" Margin="0,10,0,0"/>
         </StackPanel>
     </Grid>
