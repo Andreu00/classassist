@@ -289,7 +289,7 @@ namespace MiTFG.DAO
             return alumnosIDs;
         }
 
-        public List<AlumnoTareaView> ObtenerAlumnosConTarea(int cursoID, int tareaID)
+        /*public List<AlumnoTareaView> ObtenerAlumnosConTarea(int cursoID, int tareaID)
         {
             List<AlumnoTareaView> alumnosConTarea = new List<AlumnoTareaView>();
             conexion objetoConexion = new conexion();
@@ -330,7 +330,7 @@ namespace MiTFG.DAO
                 objetoConexion.cerrarConexion();
             }
             return alumnosConTarea;
-        }
+        }*/
 
         public List<Alumno> obtenerAlumnosPorAsignatura(int asignaturaID)
         {

@@ -10,11 +10,11 @@ namespace MiTFG.DTO
     {
         public int Alumnos_ID { get; set; }
         public int Tarea_ID { get; set; }
-        public double? Nota { get; set; }  //La interrogacion "?" nos permite que la variable double sea nula, en caso de no tenerla el valor de double deberia ser obligatorio
+        public double? Nota { get; set; }  //La interrogacion "?" nos permite que la variable int sea nula, en caso de no tenerla el valor de double deberia ser obligatorio
 
         public AlumnoTarea() { }
 
-        public AlumnoTarea(int alumnos_ID, int tarea_ID, double? nota)
+        public AlumnoTarea(int alumnos_ID, int tarea_ID, int? nota)
         {
             Alumnos_ID = alumnos_ID;
             Tarea_ID = tarea_ID;

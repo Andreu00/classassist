@@ -22,12 +22,12 @@
             </Grid>
             <DataGrid x:Name="dgAlumnos" AutoGenerateColumns="False" CanUserAddRows="False" Margin="0,10,0,0">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="ID Alumno" Binding="{Binding Alumno_ID}" Width="100"/>
-                    <DataGridTextColumn Header="Nombre Alumno" Binding="{Binding NombreAlumno}" Width="*"/>
-                    <DataGridTextColumn Header="Nota" Binding="{Binding Nota, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="100" IsReadOnly="False"/>
+                    <DataGridTextColumn Header="ID Alumno" Binding="{Binding AlumnoID}" Width="100" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Nombre Alumno" Binding="{Binding NombreAlumno}" Width="*" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Nota" Binding="{Binding Nota, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="100"/>
                 </DataGrid.Columns>
             </DataGrid>
-            <Button x:Name="btnAsignarNotas" Content="Asignar Notas" Width="200" Margin="10" HorizontalAlignment="Center" Click="btnAsignarNotas_Click"/>
+            <Button x:Name="btnAsignarNotas" Content="Guardar Notas" Width="200" Margin="10" HorizontalAlignment="Center" Click="btnAsignarNotas_Click"/>
         </StackPanel>
     </Grid>
 </Window>

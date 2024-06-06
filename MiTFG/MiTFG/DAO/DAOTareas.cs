@@ -230,45 +230,30 @@ namespace MiTFG.DAO
             {
                 using (MySqlConnection connection = objetoConexion.establecerConexion())
                 {
-                    // Primero, obtenemos las asignaturas del curso
-                    string queryAsignaturas = "SELECT ID FROM asignaturas WHERE CursoID = @CursoID";
-                    List<int> asignaturasIDs = new List<int>();
+                    string query = @"
+                        SELECT t.ID, t.Nombre, t.Tipo, t.Comentario, t.Asignaturas_ID, t.Evaluacion
+                        FROM tarea t
+                        JOIN asignaturas a ON t.Asignaturas_ID = a.ID
+                        WHERE a.CursoID = @CursoID";
 
-                    using (MySqlCommand commandAsignaturas = new MySqlCommand(queryAsignaturas, connection))
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
                     {
-                        commandAsignaturas.Parameters.AddWithValue("@CursoID", cursoID);
-                        using (MySqlDataReader readerAsignaturas = commandAsignaturas.ExecuteReader())
-                        {
-                            while (readerAsignaturas.Read())
-                            {
-                                asignaturasIDs.Add(readerAsignaturas.GetInt32("ID"));
-                            }
-                        }
-                    }
+                        command.Parameters.AddWithValue("@CursoID", cursoID);
 
-                    // Ahora, obtenemos las tareas de cada asignatura
-                    foreach (int asignaturaID in asignaturasIDs)
-                    {
-                        string queryTareas = "SELECT * FROM tarea WHERE asignaturas_ID = @AsignaturaID";
-
-                        using (MySqlCommand commandTareas = new MySqlCommand(queryTareas, connection))
+                        using (MySqlDataReader reader = command.ExecuteReader())
                         {
-                            commandTareas.Parameters.AddWithValue("@AsignaturaID", asignaturaID);
-                            using (MySqlDataReader readerTareas = commandTareas.ExecuteReader())
+                            while (reader.Read())
                             {
-                                while (readerTareas.Read())
+                                Tarea tarea = new Tarea
                                 {
-                                    Tarea tarea = new Tarea
-                                    {
-                                        ID = readerTareas.GetInt32("ID"),
-                                        Nombre = readerTareas.GetString("Nombre"),
-                                        Asignaturas_ID = readerTareas.GetInt32("Asignaturas_ID"),
-                                        Tipo = readerTareas.GetString("Tipo"),
-                                        Comentario = readerTareas.IsDBNull(readerTareas.GetOrdinal("Comentario")) ? null : readerTareas.GetString("Comentario"),
-                                        Evaluacion = readerTareas.GetString("Evaluacion")
-                                    };
-                                    tareas.Add(tarea);
-                                }
+                                    ID = reader.GetInt32("ID"),
+                                    Nombre = reader.GetString("Nombre"),
+                                    Tipo = reader.GetString("Tipo"),
+                                    Comentario = reader.GetString("Comentario"),
+                                    Asignaturas_ID = reader.GetInt32("Asignaturas_ID"),
+                                    Evaluacion = reader.GetString("Evaluacion")
+                                };
+                                tareas.Add(tarea);
                             }
                         }
                     }
@@ -285,8 +270,53 @@ namespace MiTFG.DAO
             return tareas;
         }
 
-        // Método para asignar nota
-        public void asignarNota(int alumnoID, int tareaID, double nota)
+        public List<AlumnoTarea> ObtenerAlumnosPorTarea(int cursoID, int tareaID)
+        {
+            List<AlumnoTarea> alumnosTareas = new List<AlumnoTarea>();
+            conexion objetoConexion = new conexion();
+            try
+            {
+                using (MySqlConnection connection = objetoConexion.establecerConexion())
+                {
+                    string query = @"
+                        SELECT at.alumnos_ID, at.tarea_ID, at.nota
+                        FROM alumnotarea at
+                        JOIN alumnos a ON at.alumnos_ID = a.ID
+                        WHERE a.Curso = @CursoID AND at.tarea_ID = @TareaID";
+
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@CursoID", cursoID);
+                        command.Parameters.AddWithValue("@TareaID", tareaID);
+
+                        using (MySqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                AlumnoTarea alumnoTarea = new AlumnoTarea
+                                {
+                                    Alumnos_ID = reader.GetInt32("alumnos_ID"),
+                                    Tarea_ID = reader.GetInt32("tarea_ID"),
+                                    Nota = reader.GetDouble("nota")
+                                };
+                                alumnosTareas.Add(alumnoTarea);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al obtener alumnos por tarea: " + ex.Message);
+            }
+            finally
+            {
+                objetoConexion.cerrarConexion();
+            }
+            return alumnosTareas;
+        }
+
+        public void ActualizarNotaTarea(int alumnoID, int tareaID, double nota)
         {
             conexion objetoConexion = new conexion();
             try
@@ -299,13 +329,14 @@ namespace MiTFG.DAO
                         command.Parameters.AddWithValue("@Nota", nota);
                         command.Parameters.AddWithValue("@AlumnoID", alumnoID);
                         command.Parameters.AddWithValue("@TareaID", tareaID);
+
                         command.ExecuteNonQuery();
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al asignar nota: " + ex.Message);
+                MessageBox.Show("Error al actualizar nota de tarea: " + ex.Message);
             }
             finally
             {

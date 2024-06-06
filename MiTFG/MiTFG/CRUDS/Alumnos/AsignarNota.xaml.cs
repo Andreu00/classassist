@@ -2,33 +2,20 @@
 using MiTFG.DTO;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace MiTFG.CRUDS.Alumnos
 {
-    /// <summary>
-    /// Lógica de interacción para AsignarNota.xaml
-    /// </summary>
     public partial class AsignarNota : Window
     {
         public AsignarNota()
         {
             InitializeComponent();
-            LlenarComboBoxCursos();
+            CargarCursos();
         }
 
-
-        private void LlenarComboBoxCursos()
+        private void CargarCursos()
         {
             DAOCursos daoCursos = new DAOCursos();
             List<Curso> cursos = daoCursos.ObtenerCursos();
@@ -37,16 +24,7 @@ namespace MiTFG.CRUDS.Alumnos
             cbCursos.SelectedValuePath = "ID";
         }
 
-        private void cbCursos_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (cbCursos.SelectedIndex != -1)
-            {
-                int cursoID = (int)cbCursos.SelectedValue;
-                LlenarComboBoxTareas(cursoID);
-            }
-        }
-
-        private void LlenarComboBoxTareas(int cursoID)
+        private void CargarTareas(int cursoID)
         {
             DAOTareas daoTareas = new DAOTareas();
             List<Tarea> tareas = daoTareas.ObtenerTareasPorCurso(cursoID);
@@ -55,37 +33,72 @@ namespace MiTFG.CRUDS.Alumnos
             cbTareas.SelectedValuePath = "ID";
         }
 
-        private void cbTareas_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void cbCursos_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (cbTareas.SelectedIndex != -1 && cbCursos.SelectedIndex != -1)
+            if (cbCursos.SelectedItem != null)
             {
                 int cursoID = (int)cbCursos.SelectedValue;
-                int tareaID = (int)cbTareas.SelectedValue;
-                CargarAlumnosConTarea(cursoID, tareaID);
+                CargarTareas(cursoID);
             }
         }
 
-        private void CargarAlumnosConTarea(int cursoID, int tareaID)
+        private void cbTareas_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            DAOAlumno daoAlumnos = new DAOAlumno();
-            List<AlumnoTareaView> alumnosConTarea = daoAlumnos.ObtenerAlumnosConTarea(cursoID, tareaID);
-            dgAlumnos.ItemsSource = alumnosConTarea;
+            if (cbTareas.SelectedItem != null)
+            {
+                int cursoID = (int)cbCursos.SelectedValue;
+                int tareaID = (int)cbTareas.SelectedValue;
+
+                DAOTareas daoTareas = new DAOTareas();
+                List<AlumnoTarea> alumnosTareas = daoTareas.ObtenerAlumnosPorTarea(cursoID, tareaID);
+
+                // Transformar los datos para la visualización
+                var alumnosTareasView = new List<AlumnoTareaView>();
+                DAOAlumno daoAlumno = new DAOAlumno();
+
+                foreach (var alumnoTarea in alumnosTareas)
+                {
+                    string nombreAlumno = daoAlumno.ObtenerNombreAlumnoPorID(alumnoTarea.Alumnos_ID);
+
+                    alumnosTareasView.Add(new AlumnoTareaView
+                    {
+                        Alumno_ID = alumnoTarea.Alumnos_ID,
+                        Tarea_ID = alumnoTarea.Tarea_ID,
+                        NombreAlumno = nombreAlumno,
+                        Nota = alumnoTarea.Nota // Añadimos la nota a la vista
+                    });
+                }
+
+                dgAlumnos.ItemsSource = alumnosTareasView;
+            }
         }
 
         private void btnAsignarNotas_Click(object sender, RoutedEventArgs e)
         {
-            List<AlumnoTareaView> alumnosConTarea = (List<AlumnoTareaView>)dgAlumnos.ItemsSource;
+            // Obtener las notas ingresadas
+            var alumnosTareasView = dgAlumnos.ItemsSource as List<AlumnoTareaView>;
+
+            if (alumnosTareasView == null)
+            {
+                MessageBox.Show("No hay notas para guardar.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
             DAOTareas daoTareas = new DAOTareas();
 
-            foreach (var alumnoTarea in alumnosConTarea)
+            foreach (var alumnoTareaView in alumnosTareasView)
             {
-                if (alumnoTarea.Nota.HasValue)
+                int alumnoID = alumnoTareaView.Alumno_ID;
+                int tareaID = alumnoTareaView.Tarea_ID;
+                double? nota = alumnoTareaView.Nota;
+
+                if (nota.HasValue)
                 {
-                    daoTareas.asignarNota(alumnoTarea.Alumno_ID, alumnoTarea.Tarea_ID, alumnoTarea.Nota.Value);
+                    daoTareas.ActualizarNotaTarea(alumnoID, tareaID, nota.Value);
                 }
             }
 
-            MessageBox.Show("Notas asignadas con éxito.");
+            MessageBox.Show("Notas guardadas con éxito.", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
         }
     }
 }
