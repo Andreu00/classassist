@@ -67,11 +67,13 @@ namespace MiTFG.CRUDS.Alumnos
                     falta.Fecha,
                     falta.Hora,
                     NombreAlumno = nombreAlumno,
-                    NombreAsignatura = nombreAsignatura
+                    NombreAsignatura = nombreAsignatura,
+                    falta.Estado // Añadimos el estado a la vista
                 });
             }
 
             dgFaltasAsistencia.ItemsSource = faltasAsistenciaView;
         }
+
     }
 }

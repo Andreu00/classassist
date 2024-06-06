@@ -41,7 +41,7 @@ namespace MiTFG.DAO
             }
         }
 
-        public List<FaltaDeAsistencia> ObtenerFaltasAsistenciaPorCursoYFecha(int cursoID, DateTime fechaSeleccionada)
+        public List<FaltaDeAsistencia> ObtenerFaltasAsistenciaPorCursoYFecha(int cursoID, DateTime fecha)
         {
             List<FaltaDeAsistencia> faltasAsistencia = new List<FaltaDeAsistencia>();
             conexion objetoConexion = new conexion();
@@ -50,20 +50,21 @@ namespace MiTFG.DAO
                 using (MySqlConnection connection = objetoConexion.establecerConexion())
                 {
                     string query = @"
-                        SELECT fa.ID, fa.Fecha, fa.Hora, fa.Estado, fa.AlumnoID, fa.AsignaturaID
-                        FROM faltasdeasistencia fa
-                        INNER JOIN alumnos a ON fa.AlumnoID = a.ID
-                        INNER JOIN asignaturas asg ON fa.AsignaturaID = asg.ID
-                        WHERE asg.CursoID = @CursoID AND fa.Fecha = @Fecha";
+                        SELECT f.ID, f.Fecha, f.Hora, f.Estado, f.AlumnoID, f.AsignaturaID
+                        FROM faltasdeasistencia f
+                        JOIN asignaturas a ON f.AsignaturaID = a.ID
+                        WHERE a.CursoID = @CursoID AND f.Fecha = @Fecha";
+
                     using (MySqlCommand command = new MySqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@CursoID", cursoID);
-                        command.Parameters.AddWithValue("@FechaSeleccionada", fechaSeleccionada);
+                        command.Parameters.AddWithValue("@Fecha", fecha);
+
                         using (MySqlDataReader reader = command.ExecuteReader())
                         {
                             while (reader.Read())
                             {
-                                FaltaDeAsistencia faltaAsistencia = new FaltaDeAsistencia
+                                FaltaDeAsistencia falta = new FaltaDeAsistencia
                                 {
                                     ID = reader.GetInt32("ID"),
                                     Fecha = reader.GetDateTime("Fecha"),
@@ -72,7 +73,7 @@ namespace MiTFG.DAO
                                     AlumnoID = reader.GetInt32("AlumnoID"),
                                     AsignaturaID = reader.GetInt32("AsignaturaID")
                                 };
-                                faltasAsistencia.Add(faltaAsistencia);
+                                faltasAsistencia.Add(falta);
                             }
                         }
                     }
