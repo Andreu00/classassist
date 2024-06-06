@@ -28,7 +28,7 @@ namespace MiTFG.CRUDS.Tareas
         {
             InitializeComponent();
             LlenarComboBoxTareas();
-            LlenarComboBoxCursos();
+            LlenarComboBoxAsignaturas();
         }
 
         private void btnModificar_Click(object sender, RoutedEventArgs e)
@@ -36,9 +36,10 @@ namespace MiTFG.CRUDS.Tareas
             string nombre = txtNombre.Text;
             string tipo = ((ComboBoxItem)cbTipo.SelectedItem)?.Content.ToString();
             string comentario = txtComentario.Text;
-            int? cursoID = (int?)cbCurso.SelectedValue;
+            int? asignaturaID = (int?)cbAsignaturas.SelectedValue;
+            string evaluacion = ((ComboBoxItem)cbEvaluacion.SelectedItem)?.Content.ToString();
 
-            if (string.IsNullOrEmpty(nombre) || string.IsNullOrEmpty(tipo) || !cursoID.HasValue)
+            if (string.IsNullOrEmpty(nombre) || string.IsNullOrEmpty(tipo) || !asignaturaID.HasValue || string.IsNullOrEmpty(evaluacion))
             {
                 MessageBox.Show("Por favor, completa todos los campos obligatorios.");
                 return;
@@ -50,11 +51,12 @@ namespace MiTFG.CRUDS.Tareas
                 Nombre = nombre,
                 Tipo = tipo,
                 Comentario = comentario,
-                Cursos_ID = cursoID.Value
+                Asignaturas_ID = asignaturaID.Value,
+                Evaluacion = evaluacion
             };
 
             DAOTareas daoTareas = new DAOTareas();
-            daoTareas.modificarTarea(tareaModificada);
+            daoTareas.ModificarTarea(tareaModificada);
 
             this.Close();
         }
@@ -74,11 +76,8 @@ namespace MiTFG.CRUDS.Tareas
                 txtComentario.Text = tareaSeleccionada.Comentario;
 
                 cbTipo.SelectedItem = cbTipo.Items.Cast<ComboBoxItem>().FirstOrDefault(item => item.Content.ToString() == tareaSeleccionada.Tipo);
-                    //cbTipo.Items.Cast<ComboBoxItem>(): Convierte los ítems del ComboBox a una colección de ComboBoxItem.
-                    //.FirstOrDefault(item => item.Content.ToString() == tareaSeleccionada.Tipo): Busca el primer ítem en la colección cuyo contenido(Content) coincide con el tipo de la tarea seleccionada(tareaSeleccionada.Tipo).
-                    //cbTipo.SelectedItem = ...: Establece el ítem encontrado como el ítem seleccionado en el ComboBox.
-
-                cbCurso.SelectedValue = tareaSeleccionada.Cursos_ID;
+                cbAsignaturas.SelectedValue = tareaSeleccionada.Asignaturas_ID;
+                cbEvaluacion.SelectedItem = cbEvaluacion.Items.Cast<ComboBoxItem>().FirstOrDefault(item => item.Content.ToString() == tareaSeleccionada.Evaluacion);
             }
         }
 
@@ -91,13 +90,13 @@ namespace MiTFG.CRUDS.Tareas
             cbTarea.SelectedValuePath = "ID";
         }
 
-        private void LlenarComboBoxCursos()
+        private void LlenarComboBoxAsignaturas()
         {
-            DAOCursos daoCursos = new DAOCursos();
-            List<Curso> cursos = daoCursos.ObtenerCursos();
-            cbCurso.ItemsSource = cursos;
-            cbCurso.DisplayMemberPath = "Nombre";
-            cbCurso.SelectedValuePath = "ID";
+            DAOAsignatura daoAsignaturas = new DAOAsignatura();
+            List<Asignatura> asignaturas = daoAsignaturas.ObtenerAsignaturas();
+            cbAsignaturas.ItemsSource = asignaturas;
+            cbAsignaturas.DisplayMemberPath = "Nombre";
+            cbAsignaturas.SelectedValuePath = "ID";
         }
     }
 }

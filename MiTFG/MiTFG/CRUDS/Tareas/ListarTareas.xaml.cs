@@ -27,6 +27,13 @@ namespace MiTFG.CRUDS.Tareas
             CargarTareas();
         }
 
+        private void CargarTareas()
+        {
+            DAOTareas daoTareas = new DAOTareas();
+            List<Tarea> tareas = daoTareas.ObtenerTareas();
+            dgTareas.ItemsSource = tareas;
+        }
+
         private void btnEliminarTarea_Click(object sender, RoutedEventArgs e)
         {
             int tareaID = (int)((Button)sender).Tag;
@@ -35,15 +42,9 @@ namespace MiTFG.CRUDS.Tareas
             if (result == MessageBoxResult.Yes)
             {
                 DAOTareas daoTareas = new DAOTareas();
-                daoTareas.eliminarTarea(tareaID);
+                daoTareas.EliminarTarea(tareaID);
                 CargarTareas();
             }
-        }
-        private void CargarTareas()
-        {
-            DAOTareas daoTareas = new DAOTareas();
-            List<Tarea> tareas = daoTareas.ObtenerTareas();
-            dgTareas.ItemsSource = tareas;
         }
     }
 }

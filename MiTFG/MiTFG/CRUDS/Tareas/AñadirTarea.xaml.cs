@@ -24,17 +24,28 @@ namespace MiTFG.CRUDS.Tareas
         public AñadirTarea()
         {
             InitializeComponent();
-            LlenarComboBoxCursos();
+            LlenarComboBoxAsignaturas();
+        }
+
+        private void LlenarComboBoxAsignaturas()
+        {
+            DAOAsignatura daoAsignaturas = new DAOAsignatura();
+            List<Asignatura> asignaturas = daoAsignaturas.ObtenerAsignaturas();
+            cbAsignaturas.ItemsSource = asignaturas;
+            cbAsignaturas.DisplayMemberPath = "Nombre";
+            cbAsignaturas.SelectedValuePath = "ID";
         }
 
         private void btnAñadirTarea_Click(object sender, RoutedEventArgs e)
         {
             string nombre = txtNombre.Text;
+            int asignaturaID = (int)cbAsignaturas.SelectedValue;
             string tipo = ((ComboBoxItem)cbTipo.SelectedItem)?.Content.ToString();
             string comentario = txtComentario.Text;
-            int? cursoID = (int?)cbCurso.SelectedValue;
+            string evaluacion = ((ComboBoxItem)cbEvaluacion.SelectedItem)?.Content.ToString();
 
-            if (string.IsNullOrEmpty(nombre) || string.IsNullOrEmpty(tipo) || !cursoID.HasValue)
+            // Validar datos
+            if (string.IsNullOrEmpty(nombre) || asignaturaID == 0 || string.IsNullOrEmpty(tipo) || string.IsNullOrEmpty(evaluacion))
             {
                 MessageBox.Show("Por favor, completa todos los campos obligatorios.");
                 return;
@@ -43,44 +54,21 @@ namespace MiTFG.CRUDS.Tareas
             Tarea nuevaTarea = new Tarea
             {
                 Nombre = nombre,
+                Asignaturas_ID = asignaturaID,
                 Tipo = tipo,
                 Comentario = comentario,
-                Cursos_ID = cursoID.Value
+                Evaluacion = evaluacion
             };
 
             DAOTareas daoTareas = new DAOTareas();
-            daoTareas.agregarTarea(nuevaTarea);
+            daoTareas.AgregarTarea(nuevaTarea);
 
-            //ASIGNACIÓN DE TAREA A ALUMNOS DEL CURSO SELECCIONADO
-            int tareaID = daoTareas.obtenerIDTarea(nombre, comentario); // Obtener el ID de la tarea recién insertada
-
-            DAOAlumno daoAlumnos = new DAOAlumno();
-            List<int> alumnosIDs = daoAlumnos.obtenerAlumnosPorCurso(cursoID.Value);
-
-            DAOAlumnoTarea daoAlumnoTarea = new DAOAlumnoTarea();
-            foreach (int alumnoID in alumnosIDs)
-            {
-                AlumnoTarea alumnoTarea = new AlumnoTarea(alumnoID, tareaID, null);
-                daoAlumnoTarea.agregarAlumnoTarea(alumnoTarea);
-            }
-
-            MessageBox.Show("Tarea asignada a los alumnos del curso.");
             this.Close();
-
         }
 
         private void btnCancelar_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
-        }
-
-        private void LlenarComboBoxCursos()
-        {
-            DAOCursos daoCursos = new DAOCursos();
-            List<Curso> cursos = daoCursos.ObtenerCursos();
-            cbCurso.ItemsSource = cursos;
-            cbCurso.DisplayMemberPath = "Nombre";
-            cbCurso.SelectedValuePath = "ID";
         }
 
     }

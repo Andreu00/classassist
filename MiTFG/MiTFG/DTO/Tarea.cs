@@ -10,19 +10,21 @@ namespace MiTFG.DTO
     {
         public int ID { get; set; }
         public string Nombre { get; set; }
+        public int Asignaturas_ID { get; set; }
         public string Tipo { get; set; }
         public string Comentario { get; set; }
-        public int Cursos_ID { get; set; }
+        public string Evaluacion { get; set; }
 
         public Tarea() { }
 
-        public Tarea(int id, string nombre, string tipo, string comentario, int cursos_ID)
+        public Tarea(int id, string nombre, int asignaturas_ID, string tipo, string comentario, string evaluacion)
         {
             ID = id;
             Nombre = nombre;
+            Asignaturas_ID = asignaturas_ID;
             Tipo = tipo;
             Comentario = comentario;
-            Cursos_ID = cursos_ID;
+            Evaluacion = evaluacion;
         }
     }
 }
