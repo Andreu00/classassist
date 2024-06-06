@@ -297,7 +297,7 @@ namespace MiTFG.DAO
                                 {
                                     Alumnos_ID = reader.GetInt32("alumnos_ID"),
                                     Tarea_ID = reader.GetInt32("tarea_ID"),
-                                    Nota = reader.GetDouble("nota")
+                                    Nota = reader.GetInt32("nota")
                                 };
                                 alumnosTareas.Add(alumnoTarea);
                             }
