@@ -26,7 +26,7 @@
             <PasswordBox x:Name="txtPassword" Margin="0,5,0,20" Width="200"/>
 
             <!-- Botón de inicio de sesión -->
-            <Button x:Name="btnLogin" Content="Iniciar Sesión" Width="132" Click="btnLogin_Click"/>
+            <Button x:Name="btnLogin" Content="Iniciar Sesión" Width="132" Click="btnLogin_Click" Background="#FFDAD43C" BorderBrush="#FFDAD43C"/>
         </StackPanel>
         <Frame x:Name="framePrincipal" NavigationUIVisibility="Hidden" Grid.RowSpan="2" />
     </Grid>
