@@ -44,7 +44,6 @@ namespace MiTFG.CRUDS.Usuarios
                 // Eliminar usuario
                 DAOUsuario daoUsuario = new DAOUsuario();
                 daoUsuario.eliminarUsuario(usuarioID);
-                MessageBox.Show("Usuario eliminado con éxito.");
                 CargarUsuarios();  // Actualizar la lista de usuarios
             }
         }

@@ -48,7 +48,6 @@ namespace MiTFG
                         framePrincipal.Navigate(new Uri("admin_profesor.xaml", UriKind.Relative));
                         break;
                     default:
-                        MessageBox.Show("Rango de usuario no reconocido.");
                         break;
                 }
             }

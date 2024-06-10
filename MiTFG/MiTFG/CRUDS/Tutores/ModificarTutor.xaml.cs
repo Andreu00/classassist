@@ -57,7 +57,6 @@ namespace MiTFG.CRUDS.Tutores
             DAOTutores daoTutores = new DAOTutores();
             daoTutores.ModificarTutor(tutorSeleccionado);
 
-            MessageBox.Show("Tutor actualizado con éxito.");
             this.Close();
         }
 

@@ -106,12 +106,10 @@ namespace MiTFG.CRUDS.Usuarios
                     List<int> cursosSeleccionados = lbCursos.SelectedItems.Cast<Curso>().Select(c => c.ID).ToList();
                     daoCursoProfesores.ActualizarRelacionesDeProfesor(usuarioSeleccionado.id, cursosSeleccionados, usuarioSeleccionado.Rango);
 
-                    MessageBox.Show("Usuario modificado con éxito.");
                     LlenarComboBoxUsuarios(); // Actualizar la lista de usuarios en el ComboBox
                 }
                 else
                 {
-                    MessageBox.Show("Por favor, selecciona un usuario.");
                 }
             }
         }

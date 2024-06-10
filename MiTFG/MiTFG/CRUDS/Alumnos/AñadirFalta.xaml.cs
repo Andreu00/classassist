@@ -111,7 +111,6 @@ namespace MiTFG.CRUDS.Alumnos
             DAOFaltas daoFaltas = new DAOFaltas();
             daoFaltas.AgregarFalta(nuevaFalta);
 
-            MessageBox.Show("Falta de asistencia añadida con éxito.");
             this.Close();
         }
     }

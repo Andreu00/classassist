@@ -76,12 +76,10 @@ namespace MiTFG.CRUDS.Usuarios
                     daoCursoProfesores.ActualizarRelacionesDeProfesor(usuarioID, cursosSeleccionados, rango);
                 }
 
-                MessageBox.Show("Usuario añadido con éxito.");
                 this.Close();
             }
             else
             {
-                MessageBox.Show("Error al añadir el usuario.");
             }
         }
     }
