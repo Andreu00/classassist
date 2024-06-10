@@ -297,7 +297,7 @@ namespace MiTFG.DAO
                                 {
                                     Alumnos_ID = reader.GetInt32("alumnos_ID"),
                                     Tarea_ID = reader.GetInt32("tarea_ID"),
-                                    Nota = reader.GetInt32("nota")
+                                    Nota = reader.IsDBNull(reader.GetOrdinal("nota")) ? (int?)null : reader.GetInt32("nota") //Esto nos permite mostrar los datos en caso de ser nulos
                                 };
                                 alumnosTareas.Add(alumnoTarea);
                             }

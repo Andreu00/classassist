@@ -22,7 +22,7 @@
             </Grid>
             <DataGrid x:Name="dgAlumnos" AutoGenerateColumns="False" CanUserAddRows="False" Margin="0,10,0,0">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="ID Alumno" Binding="{Binding AlumnoID}" Width="100" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="ID Alumno" Binding="{Binding Alumno_ID}" Width="100" IsReadOnly="True"/>
                     <DataGridTextColumn Header="Nombre Alumno" Binding="{Binding NombreAlumno}" Width="*" IsReadOnly="True"/>
                     <DataGridTextColumn Header="Nota" Binding="{Binding Nota, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="100"/>
                 </DataGrid.Columns>
