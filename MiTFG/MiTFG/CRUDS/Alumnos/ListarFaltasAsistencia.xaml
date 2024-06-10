@@ -8,7 +8,7 @@
         Title="Listar Faltas de Asistencia" Height="450" Width="800"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize">
-    <Grid Margin="10">
+    <Grid Margin="10,10,10,-16">
 
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,371">
             <TextBlock Text="Curso:" VerticalAlignment="Center" Margin="0,0,10,0"/>
@@ -18,7 +18,7 @@
             <Button x:Name="btnCargar" Content="Cargar" Width="100" Click="btnCargar_Click"/>
         </StackPanel>
 
-        <DataGrid x:Name="dgFaltasAsistencia" AutoGenerateColumns="False" IsReadOnly="True" CanUserAddRows="False" Margin="0,48,0,0">
+        <DataGrid x:Name="dgFaltasAsistencia" AutoGenerateColumns="False" IsReadOnly="True" CanUserAddRows="False" Margin="0,62,0,0">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding ID}" Width="Auto"/>
                 <DataGridTextColumn Header="Alumno" Binding="{Binding NombreAlumno}" Width="250"/>
