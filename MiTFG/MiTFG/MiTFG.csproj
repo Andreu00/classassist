@@ -113,6 +113,9 @@
     <Compile Include="admin_profesor.xaml.cs">
       <DependentUpon>admin_profesor.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CRUDS\Alumnos\ListarCriterios.xaml.cs">
+      <DependentUpon>ListarCriterios.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CRUDS\Alumnos\ModificarFalta.xaml.cs">
       <DependentUpon>ModificarFalta.xaml</DependentUpon>
     </Compile>
@@ -164,6 +167,7 @@
     <Compile Include="DAO\DAOAlumno.cs" />
     <Compile Include="DAO\DAOAlumnoTarea.cs" />
     <Compile Include="DAO\DAOAsignatura.cs" />
+    <Compile Include="DAO\DAOCriterios.cs" />
     <Compile Include="DAO\DAOCursoProfesores.cs" />
     <Compile Include="DAO\DAOCursos.cs" />
     <Compile Include="DAO\DAOFaltas.cs" />
@@ -176,10 +180,12 @@
     <Compile Include="DTO\Alumno.cs" />
     <Compile Include="DTO\AlumnoConTutor.cs" />
     <Compile Include="DTO\AlumnoTarea.cs" />
+    <Compile Include="DTO\AlumnoTareaCriterio.cs" />
     <Compile Include="DTO\AlumnoTareaView.cs" />
     <Compile Include="DTO\Asignatura.cs" />
     <Compile Include="DTO\AsignaturaCriterio.cs" />
     <Compile Include="DTO\CriterioDeEvaluacion.cs" />
+    <Compile Include="DTO\CriteriosVista.cs" />
     <Compile Include="DTO\CursoProfesores.cs" />
     <Compile Include="DTO\Curso.cs" />
     <Compile Include="DTO\FaltaDeAsistencia.cs" />
@@ -193,6 +199,10 @@
       <DependentUpon>profesor.xaml</DependentUpon>
     </Compile>
     <Page Include="admin_profesor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CRUDS\Alumnos\ListarCriterios.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

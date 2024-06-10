@@ -13,5 +13,6 @@ namespace MiTFG.DTO
         public int Tarea_ID { get; set; }
         public string NombreTarea { get; set; }
         public double? Nota { get; set; }
+
     }
 }

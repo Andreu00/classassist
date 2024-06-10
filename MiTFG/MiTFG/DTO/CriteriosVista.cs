@@ -6,17 +6,19 @@ using System.Threading.Tasks;
 
 namespace MiTFG.DTO
 {
-    internal class CriterioDeEvaluacion
+    internal class CriteriosVista
     {
         public int ID { get; set; }
         public string NombreCriterio { get; set; }
+        public bool Cumple { get; set; }
 
-        public CriterioDeEvaluacion() { }
+        public CriteriosVista() { }
 
-        public CriterioDeEvaluacion(int id, string nombreCriterio)
+        public CriteriosVista(int id, string nombreCriterio, bool cumple)
         {
             ID = id;
             NombreCriterio = nombreCriterio;
+            Cumple = cumple;
         }
     }
 }

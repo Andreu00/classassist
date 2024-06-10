@@ -100,5 +100,15 @@ namespace MiTFG.CRUDS.Alumnos
 
             MessageBox.Show("Notas guardadas con éxito.", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
         }
+
+        private void btnCriterios_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+            int alumnoID = (int)button.Tag;
+            int tareaID = (int)cbTareas.SelectedValue;
+
+            ListarCriterios listarCriterios = new ListarCriterios(tareaID, alumnoID);
+            listarCriterios.ShowDialog();
+        }
     }
 }

@@ -1,0 +1,27 @@
+﻿<Window x:Class="MiTFG.CRUDS.Alumnos.ListarCriterios"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MiTFG.CRUDS.Alumnos"
+        mc:Ignorable="d"
+        Title="ListarCriterios" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Criterios de Evaluación" FontSize="16" FontWeight="Bold" Margin="0,0,0,10"/>
+        <DataGrid x:Name="dgCriterios" AutoGenerateColumns="False" CanUserAddRows="False" Grid.Row="1">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding ID}" Width="50" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Nombre Criterio" Binding="{Binding NombreCriterio}" Width="*"/>
+                <DataGridCheckBoxColumn Header="Cumple" Binding="{Binding Cumple}" Width="100"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="btnGuardar" Content="Guardar" Width="100" Margin="10" HorizontalAlignment="Center" Grid.Row="2" Click="btnGuardar_Click"/>
+    </Grid>
+</Window>
