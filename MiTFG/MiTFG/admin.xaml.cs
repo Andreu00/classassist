@@ -123,5 +123,16 @@ namespace MiTFG.Views
             var dataWindow = new ListarTutores();
             dataWindow.Show();
         }
+        private void btnModificarFa_Click(object sender, RoutedEventArgs e)
+        {
+            var dataWindow = new ModificarFalta();
+            dataWindow.Show();
+        }
+
+        private void btnAsignarNota_Click(object sender, RoutedEventArgs e)
+        {
+            var dataWindow = new AsignarNota();
+            dataWindow.Show();
+        }
     }
 }
