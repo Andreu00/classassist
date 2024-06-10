@@ -12,7 +12,7 @@
     <Grid Background="White">
         <!-- Encabezado -->
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0">
-            <TextBlock Text="Bienvenido!" FontSize="30" Foreground="#FF448000" FontWeight="Bold"/>
+            <TextBlock Text="Bienvenid@ Administrador/a!" FontSize="30" Foreground="#FF448000" FontWeight="Bold"/>
         </StackPanel>
 
         <!-- Botones de Gestión -->
