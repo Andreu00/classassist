@@ -114,7 +114,7 @@ namespace MiTFG.DAO
 
         public int ObtenerCursoPorNombreAlumno(string nombreAlumno)
         {
-            int cursoID = -1;
+            int cursoID = -1; //Se inicializa en -1 para tener un valor por defecto en caso de que la consulta a la base de datos no devuelva ningún resultado
             conexion objetoConexion = new conexion();
             try
             {

@@ -68,8 +68,6 @@ namespace MiTFG.CRUDS.Tareas
             DAOTareas daoTareas = new DAOTareas();
             int tareaID = daoTareas.AgregarTarea(tarea);
 
-            //COMPROBAR QUE RECOGE EL ID
-                //MessageBox.Show("Es:"+tareaID);
 
             if (tareaID > 0)
             {
